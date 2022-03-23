@@ -8,6 +8,8 @@ public class HeriteAppli extends Application {
     public void start(Stage stage) {
         VBoxRoot root = new VBoxRoot();
 
+        //setPrefColumns(2);
+
         Scene scene = new Scene(root, 300, 80);
         stage.setScene(scene);
         stage.setTitle("Hello JavaFX");
