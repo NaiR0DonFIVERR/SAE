@@ -1,5 +1,6 @@
 package vue;
 
+
 import javafx.geometry.Insets;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
@@ -11,7 +12,6 @@ import modele.DateCalendrier;
 
 public class VBoxRoot extends VBox implements ConstantesCalendrier {
     public VBoxRoot(){
-
         CalendrierDuMois dateCalendrier = new CalendrierDuMois(3,2022);
 
         Label labelTitle = new Label(MOIS[dateCalendrier.getMois()-1] + " " + dateCalendrier.getAnnee());
