@@ -19,7 +19,7 @@ public class VBoxRoot extends VBox implements ConstantesCalendrier {
         VBox.setMargin(labelTitle, new Insets(14)); //Marge du Mois et Année
 
         VBox boxDate = new VBox();
-        ScrollPane barre = new ScrollPane(); //Ajout de la barre de navigation
+        ScrollPane barre = new ScrollPane(); //Ajout de la barre de navigation.
         barre.setContent(boxDate);
         VBox.setMargin(barre, new Insets(4));
 
