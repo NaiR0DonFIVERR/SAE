@@ -10,7 +10,7 @@ public class HeriteAppli extends Application {
 
         //setPrefColumns(2);
 
-        Scene scene = new Scene(root, 300, 80);
+        Scene scene = new Scene(root, 500, 500);
         stage.setScene(scene);
         stage.setTitle("Hello JavaFX");
         stage.show();
