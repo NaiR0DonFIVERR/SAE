@@ -128,6 +128,10 @@ public class Date {
         return jourMoisAnnee;
     }*/
 
+    public int getMois(){
+        return chMois;
+    }
+
     public String toString() {
         return chJour + "/" + chMois + "/" + chAnnee;
     }
