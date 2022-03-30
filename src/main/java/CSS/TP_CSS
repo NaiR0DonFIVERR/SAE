@@ -5,3 +5,6 @@
     -fx-background: #ddf5ee;
     -fx-border-color: #5F9EA0;
 }
+#boxDate_boutton{
+    -fx-background-color: #2596be;
+}
