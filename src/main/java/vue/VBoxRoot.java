@@ -17,6 +17,7 @@ import modele.ConstantesCalendrier;
 import modele.Date;
 import modele.DateCalendrier;
 
+import java.util.List;
 import java.util.TreeSet;
 
 import static modele.Date.dernierJourMois;
@@ -104,7 +105,10 @@ public class VBoxRoot extends VBox implements ConstantesCalendrier {
 
         }
         getChildren().addAll(boxTop, pagesMois);
-
+        List<Node> listeDesTack = pagesMois.getChildren(); //transformer la stack pane en noeud
+        for (int i=0; i<12; i++){
+            System.out.println(listeDesTack.get(i).setAccessibleText());
+        }
 
         /*public TreeSet listeJourMois(DateCalendrier Object parDate){
             VBox boxDate = new VBox();
