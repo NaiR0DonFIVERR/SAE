@@ -132,7 +132,7 @@ public class Date {
         return chMois;
     }
 
-    public  int gatAnnee(){
+    public  int getAnnee(){
         return chAnnee;
     }
 
