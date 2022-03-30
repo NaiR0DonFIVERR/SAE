@@ -47,4 +47,9 @@ public class CalendrierDuMois {
         return annee;
     }
 
+    public static void main(String[]arg){
+        CalendrierDuMois calend = new CalendrierDuMois(3,2022);
+        System.out.println(calend);
+    }
+
 }

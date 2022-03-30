@@ -1,7 +1,10 @@
 package vue;
 
 
+import javafx.beans.Observable;
+import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
@@ -13,6 +16,10 @@ import modele.CalendrierDuMois;
 import modele.ConstantesCalendrier;
 import modele.Date;
 import modele.DateCalendrier;
+
+import java.util.TreeSet;
+
+import static modele.Date.dernierJourMois;
 
 public class VBoxRoot extends VBox implements ConstantesCalendrier {
     public VBoxRoot(){
@@ -44,11 +51,11 @@ public class VBoxRoot extends VBox implements ConstantesCalendrier {
         Button bouton4 = new Button(">>");
         boxBouton.getChildren().addAll(bouton1, bouton2, bouton3, bouton4);
 
-        HBox boxEnsemble = new HBox();
-        boxEnsemble.getChildren().addAll(labelMoisCourant, boxBouton);
-        StackPane pageMois = new StackPane();
+        HBox boxTop = new HBox();
+        boxTop.getChildren().addAll(labelMoisCourant, boxBouton);
 
-        for (int i=0; i < 12; i++){
+
+       /* for (int i=0; i < 12; i++){
 
             HBox boxDate_boutton = new HBox();
             Label labelDuMois = new Label(MOIS[i]);
@@ -67,6 +74,65 @@ public class VBoxRoot extends VBox implements ConstantesCalendrier {
 
         }
         this.getChildren().add(pageMois);
+        DateCalendrier premierJourAn = new DateCalendrier(1,1,2022);*/
+        StackPane pagesMois = new StackPane();
+
+        for (int i=0; i<12 ; i++){
+            CalendrierDuMois calendrierMois = new CalendrierDuMois(i+1, 2022);//Recupère une liste des jours du mois
+
+            ScrollPane barre = new ScrollPane();
+            VBox boxDate = new VBox();
+            barre.setContent(boxDate);
+
+            for (DateCalendrier date : calendrierMois.getDates()){  //parcourt du mois
+
+                Label labelDate = new Label(date.toString());
+
+                if (date.getMois() != dateCalendrier.getMois()){
+                    labelDate.setId("dateHorsMois");
+                }
+
+                if (date.compareTo(new DateCalendrier()) == 0){
+                    labelDate.setId("Today");
+                }
+
+                VBox.setMargin(labelDate, new Insets(8));
+                boxDate.getChildren().add(labelDate);
+            }
+            pagesMois.getChildren().add(barre);
+
+
+        }
+        getChildren().addAll(boxTop, pagesMois);
+
+
+        /*public TreeSet listeJourMois(DateCalendrier Object parDate){
+            VBox boxDate = new VBox();
+            ScrollPane barre = new ScrollPane();
+
+            barre.setContent(boxDate);
+            VBox.setMargin(barre, new Insets(4));
+
+            for (DateCalendrier date : parDate.getDates()){
+                Label labelDate = new Label(date.toString());
+                if (date.getMois() != dateCalendrier.getMois()){
+                    labelDate.setId("dateHorsMois");
+                }
+
+                if (date.compareTo(new DateCalendrier()) == 0){
+                    labelDate.setId("Today");
+                }
+
+                VBox.setMargin(labelDate, new Insets(8));
+                boxDate.getChildren().add(labelDate);
+            }
+            this.getChildren().addAll(labelMoisCourant,barre);
+
+
+
+
+            //DateCalendrier jourFinMois = new DateCalendrier(dernierJourMois(parDate.getDate().getMois(), parDate.getAnnee()));
+        }*/
 
 
 
