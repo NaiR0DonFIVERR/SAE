@@ -48,11 +48,11 @@ public class VBoxRoot extends VBox implements ConstantesCalendrier {
         Label labelMoisCourant = new Label(MOIS[mois-1] + " " + annee);
 
         HBox boxBouton = new HBox();
-        Button bouton1 = new Button("<<");
-        Button bouton2 = new Button("<");
-        Button bouton3 = new Button(">");
-        Button bouton4 = new Button(">>");
-        boxBouton.getChildren().addAll(bouton1, bouton2, bouton3, bouton4);
+        Button bouton1erposi = new Button("<<");
+        Button boutonPre = new Button("<");
+        Button boutonSuiv = new Button(">");
+        Button boutonDern = new Button(">>");
+        boxBouton.getChildren().addAll(bouton1erposi, boutonPre, boutonSuiv, boutonDern);
         boxBouton.setAlignment(Pos.CENTER_RIGHT);
         HBox.setHgrow(boxBouton, Priority.ALWAYS);
 
@@ -120,6 +120,32 @@ public class VBoxRoot extends VBox implements ConstantesCalendrier {
         /*On a donné un nom à chaque srollPlane. La listeDesTrack récupère tout les scroll. On la parcourt :
             La méthode getAccessibleTexte técupère le nom des scrollPlane que nous avons attribué
             On la compare avec la mois de jour courant*/
+
+        boutonPre.setOnAction(evt ->{
+            listeDesTack.get(chiffre).toBack();
+            labelMoisCourant.setText(listeDesTack.get(chiffre).getAccessibleText()+" "+ dateJ.getAnnee());
+        });
+
+        boutonSuiv.setOnAction(evt ->{
+            listeDesTack.get(0).toFront();
+            labelMoisCourant.setText(listeDesTack.get(chiffre).getAccessibleText()+" "+ dateJ.getAnnee());
+        });
+
+        bouton1erposi.setOnAction(evt ->{
+            while (!listeDesTack.get(chiffre).getAccessibleText().equals(MOIS[0])){
+                listeDesTack.get(0).toFront();
+                labelMoisCourant.setText(listeDesTack.get(chiffre).getAccessibleText()+" "+ dateJ.getAnnee());
+            }
+        });
+
+        boutonDern.setOnAction(evt ->{
+            while (!listeDesTack.get(chiffre).getAccessibleText().equals(MOIS[11])){
+                listeDesTack.get(chiffre).toBack();
+                labelMoisCourant.setText(listeDesTack.get(chiffre).getAccessibleText()+" "+ dateJ.getAnnee());
+            }
+        });
+
+
 
 
         /*public TreeSet listeJourMois(DateCalendrier Object parDate){
