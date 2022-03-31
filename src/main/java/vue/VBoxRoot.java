@@ -4,11 +4,13 @@ package vue;
 import javafx.beans.Observable;
 import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Priority;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
@@ -51,6 +53,9 @@ public class VBoxRoot extends VBox implements ConstantesCalendrier {
         Button bouton3 = new Button(">");
         Button bouton4 = new Button(">>");
         boxBouton.getChildren().addAll(bouton1, bouton2, bouton3, bouton4);
+        boxBouton.setAlignment(Pos.CENTER_RIGHT);
+        HBox.setHgrow(boxBouton, Priority.ALWAYS);
+
 
         HBox boxTop = new HBox();
         boxTop.getChildren().addAll(labelMoisCourant, boxBouton);
@@ -101,14 +106,21 @@ public class VBoxRoot extends VBox implements ConstantesCalendrier {
                 boxDate.getChildren().add(labelDate);
             }
             pagesMois.getChildren().add(barre);
-
+            barre.setAccessibleText(MOIS[i]);
 
         }
+        DateCalendrier dateJ = new DateCalendrier();
         getChildren().addAll(boxTop, pagesMois);
         List<Node> listeDesTack = pagesMois.getChildren(); //transformer la stack pane en noeud
-        for (int i=0; i<12; i++){
-            System.out.println(listeDesTack.get(i).setAccessibleText());
+        int chiffre = listeDesTack.size()-1;
+        while (!listeDesTack.get(chiffre).getAccessibleText().equals(MOIS[dateJ.getMois()-1]) ){
+            listeDesTack.get(0).toFront();
         }
+        labelMoisCourant.setText(listeDesTack.get(chiffre).getAccessibleText());
+        /*On a donné un nom à chaque srollPlane. La listeDesTrack récupère tout les scroll. On la parcourt :
+            La méthode getAccessibleTexte técupère le nom des scrollPlane que nous avons attribué
+            On la compare avec la mois de jour courant*/
+
 
         /*public TreeSet listeJourMois(DateCalendrier Object parDate){
             VBox boxDate = new VBox();
