@@ -1,8 +1,6 @@
 package vue;
 
 
-import javafx.beans.Observable;
-import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
@@ -13,16 +11,11 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
-import javafx.scene.text.Font;
 import modele.CalendrierDuMois;
 import modele.ConstantesCalendrier;
-import modele.Date;
 import modele.DateCalendrier;
-
 import java.util.List;
-import java.util.TreeSet;
 
-import static modele.Date.dernierJourMois;
 
 public class VBoxRoot extends VBox implements ConstantesCalendrier {
     public VBoxRoot(){
@@ -120,6 +113,11 @@ public class VBoxRoot extends VBox implements ConstantesCalendrier {
         /*On a donné un nom à chaque srollPlane. La listeDesTrack récupère tout les scroll. On la parcourt :
             La méthode getAccessibleTexte técupère le nom des scrollPlane que nous avons attribué
             On la compare avec la mois de jour courant*/
+
+
+
+
+
 
         boutonPre.setOnAction(evt ->{
             listeDesTack.get(chiffre).toBack();
