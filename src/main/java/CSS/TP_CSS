@@ -8,3 +8,10 @@
 #boxDate_boutton{
     -fx-background-color: #2596be;
 }
+#opaque{
+    -fx-background-color: white;
+}
+
+.toggle-button {
+    -fx-background-color: white;
+}

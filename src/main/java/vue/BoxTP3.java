@@ -20,12 +20,17 @@ public class BoxTP3 extends HBox implements ConstantesCalendrier {
             CalendrierDuMois moisCalendrier = new CalendrierDuMois(i,2022);
 
             TilePane titre = new TilePane();
+            titre.setMaxWidth(400);
+            titre.setMinWidth(400);
 
             titre.setId("opaque");
 
             for (String jourAb : JOURS_SEMAINE){
                 Label labelJour = new Label(jourAb);
                 titre.getChildren().add(labelJour);
+            }
+            if (i == 12){
+                System.out.println(new CalendrierDuMois(12,2022));
             }
             for (DateCalendrier date : moisCalendrier.getDates()){
 
