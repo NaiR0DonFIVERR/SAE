@@ -1,24 +1,57 @@
 package vue;
 
-import javafx.geometry.Insets;
-import javafx.geometry.Pos;
-import javafx.scene.Node;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.ScrollPane;
+
+import javafx.scene.control.*;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.Priority;
 import javafx.scene.layout.StackPane;
+import javafx.scene.layout.TilePane;
 import javafx.scene.layout.VBox;
 import modele.CalendrierDuMois;
 import modele.ConstantesCalendrier;
 import modele.DateCalendrier;
-import java.util.List;
-import java.util.Stack;
 
 
-public class BoxTP3 extends VBox implements ConstantesCalendrier {
+public class BoxTP3 extends HBox implements ConstantesCalendrier {
     public BoxTP3() {
+
         StackPane stackPane = new StackPane();
+        ToggleGroup buttonGroup = new ToggleGroup();
+        for (int i=1; i<=12; i++){
+            CalendrierDuMois moisCalendrier = new CalendrierDuMois(i,2022);
+
+            TilePane titre = new TilePane();
+
+            titre.setId("opaque");
+
+            for (String jourAb : JOURS_SEMAINE){
+                Label labelJour = new Label(jourAb);
+                titre.getChildren().add(labelJour);
+            }
+            for (DateCalendrier date : moisCalendrier.getDates()){
+
+                ToggleButton boutonDate = new ToggleButton(Integer.toString(date.getJour()));
+                //Créer un bouton pour chaque jour du mois i
+                boutonDate.setToggleGroup(buttonGroup);
+
+                titre.getChildren().add(boutonDate);
+
+                boutonDate.setUserData(date);
+
+                boutonDate.setOnAction(evt ->{
+                    System.out.println("Test");
+                });
+
+                if (date.getMois() != moisCalendrier.getMois()){
+                    boutonDate.setId("hors_Mois");
+                }
+
+                if (date.equals(new DateCalendrier())){
+                    boutonDate.setId("aujourd");
+                }
+            }
+            titre.setAccessibleText(MOIS[i-1]);
+            stackPane.getChildren().add(titre);
+        }
+        getChildren().add(stackPane);
     }
 }

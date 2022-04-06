@@ -10,7 +10,7 @@ import java.io.File;
 
 public class HeriteAppli extends Application {
     public void start(Stage stage) {
-        VBoxRoot root = new VBoxRoot();
+        BoxTP3 root = new BoxTP3();
         Scene scene = new Scene(root, 500, 500);
         File[] fichierCss = new File("src/main/java/CSS").listFiles();
 
