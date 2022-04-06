@@ -136,6 +136,8 @@ public class Date {
         return chAnnee;
     }
 
+    public int getJour() { return chJour; }
+
     public String toString() {
         return chJour + "/" + chMois + "/" + chAnnee;
     }
