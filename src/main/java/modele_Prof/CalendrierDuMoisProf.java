@@ -50,7 +50,7 @@ public class CalendrierDuMoisProf {
     }
 
     public static void main(String[]arg){
-        modele.CalendrierDuMois calend = new modele.CalendrierDuMois(3,2022);
+        CalendrierDuMoisProf calend = new CalendrierDuMoisProf(4,2022);
         System.out.println(calend);
     }
 

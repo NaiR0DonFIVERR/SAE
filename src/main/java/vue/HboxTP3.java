@@ -1,14 +1,13 @@
 package vue;
 
+import javafx.geometry.Pos;
 import javafx.scene.control.*;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.StackPane;
-import javafx.scene.layout.TilePane;
+import javafx.scene.layout.*;
 import modele_Prof.CalendrierDuMoisProf;
 import modele_Prof.ConstantesCalendrier;
 import modele_Prof.DateCalendrierProf;
 
-public class HboxTP3 extends HBox implements ConstantesCalendrier {
+public class HboxTP3 extends VBox implements ConstantesCalendrier {
     public HboxTP3(){
         StackPane stackMois = new StackPane();
         ToggleGroup boutonGroup = new ToggleGroup();
@@ -17,6 +16,8 @@ public class HboxTP3 extends HBox implements ConstantesCalendrier {
             CalendrierDuMoisProf moisCalendrier = new CalendrierDuMoisProf(i, 2022);
 
             TilePane titledPane = new TilePane();
+            titledPane.setMaxWidth(400);
+            titledPane.setMinWidth(400);
             titledPane.setId("opaque");
 
             for (String jour : JOURS_SEMAINE){
@@ -44,6 +45,25 @@ public class HboxTP3 extends HBox implements ConstantesCalendrier {
             titledPane.setAccessibleText(MOIS[i-1]);
             stackMois.getChildren().add(titledPane);
         }
+
+        DateCalendrierProf jourAuj = new DateCalendrierProf();
+        int MOIS_VAR = jourAuj.getMois();
+        Label labelMoisCourant = new Label(MOIS[MOIS_VAR-1] + " " + jourAuj.getAnnee());
+
+        HBox boxBouton = new HBox();
+        Button bouton1erposi = new Button("<<");
+        Button boutonPre = new Button("<");
+        Button boutonSuiv = new Button(">");
+        Button boutonDern = new Button(">>");
+        boxBouton.getChildren().addAll(bouton1erposi, boutonPre, boutonSuiv, boutonDern);
+
+
+        HBox boxTop = new HBox();
+        boxTop.getChildren().addAll(labelMoisCourant, boxBouton);
+
+
+        this.getChildren().addAll(stackMois, boxTop);
+
     }
 
 }

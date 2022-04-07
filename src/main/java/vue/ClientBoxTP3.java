@@ -10,7 +10,8 @@ import java.io.File;
 
 public class ClientBoxTP3 extends Application {
     public void start(Stage stage) {
-        BoxTP3 root = new BoxTP3();
+        //BoxTP3 root = new BoxTP3();
+        HboxTP3 root = new HboxTP3();
         Scene scene = new Scene(root, 500, 500);
         File[] fichierCss = new File("src/main/java/CSS").listFiles();
 
