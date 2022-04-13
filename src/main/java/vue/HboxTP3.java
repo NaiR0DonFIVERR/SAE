@@ -1,11 +1,14 @@
 package vue;
 
 import javafx.geometry.Pos;
+import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.layout.*;
-import modele_Prof.CalendrierDuMoisProf;
-import modele_Prof.ConstantesCalendrier;
-import modele_Prof.DateCalendrierProf;
+import modele.CalendrierDuMois;
+import modele.ConstantesCalendrier;
+import modele.DateCalendrier;
+
+import java.util.List;
 
 public class HboxTP3 extends VBox implements ConstantesCalendrier {
     public HboxTP3(){
@@ -13,7 +16,7 @@ public class HboxTP3 extends VBox implements ConstantesCalendrier {
         ToggleGroup boutonGroup = new ToggleGroup();
 
         for(int i = 1; i<=12; i++){
-            CalendrierDuMoisProf moisCalendrier = new CalendrierDuMoisProf(i, 2022);
+            CalendrierDuMois moisCalendrier = new CalendrierDuMois(i, 2022);
 
             TilePane titledPane = new TilePane();
             titledPane.setMaxWidth(400);
@@ -25,7 +28,7 @@ public class HboxTP3 extends VBox implements ConstantesCalendrier {
                 titledPane.getChildren().add(labelJour);
             }
 
-            for (DateCalendrierProf date : moisCalendrier.getDates()){
+            for (DateCalendrier date : moisCalendrier.getDates()){
                 ToggleButton boutonDate = new ToggleButton(Integer.toString(date.getJour()));
 
                 boutonDate.setToggleGroup(boutonGroup);
@@ -33,12 +36,12 @@ public class HboxTP3 extends VBox implements ConstantesCalendrier {
 
                 boutonDate.setUserData(date);
                 boutonDate.setOnAction(evt ->{
-                    System.out.println("Test");
+                    System.out.println("date");
                 });
                 if (date.getMois() != moisCalendrier.getMois()){
                     boutonDate.setId("HorsMois");
                 }
-                if (date.equals(new DateCalendrierProf())){
+                if (date.compareTo(new DateCalendrier()) == 0){
                     boutonDate.setId("Today");
                 }
             }
@@ -46,7 +49,7 @@ public class HboxTP3 extends VBox implements ConstantesCalendrier {
             stackMois.getChildren().add(titledPane);
         }
 
-        DateCalendrierProf jourAuj = new DateCalendrierProf();
+        DateCalendrier jourAuj = new DateCalendrier();
         int MOIS_VAR = jourAuj.getMois();
         Label labelMoisCourant = new Label(MOIS[MOIS_VAR-1] + " " + jourAuj.getAnnee());
 
@@ -58,9 +61,38 @@ public class HboxTP3 extends VBox implements ConstantesCalendrier {
         boxBouton.getChildren().addAll(bouton1erposi, boutonPre, boutonSuiv, boutonDern);
 
 
+        List<Node> listeDesMois = stackMois.getChildren();
+
         HBox boxTop = new HBox();
         boxTop.getChildren().addAll(labelMoisCourant, boxBouton);
+        while (!listeDesMois.get(11).getAccessibleText().equals(MOIS[jourAuj.getMois()-1]) ){
+            listeDesMois.get(0).toFront();
+        }
 
+
+        boutonPre.setOnAction(evt ->{
+            listeDesMois.get(11).toBack();
+            labelMoisCourant.setText(listeDesMois.get(11).getAccessibleText()+" "+ jourAuj.getAnnee());
+        });
+
+        boutonSuiv.setOnAction(evt ->{
+            listeDesMois.get(0).toFront();
+            labelMoisCourant.setText(listeDesMois.get(11).getAccessibleText()+" "+ jourAuj.getAnnee());
+        });
+
+        bouton1erposi.setOnAction(evt ->{
+            while (!listeDesMois.get(11).getAccessibleText().equals(MOIS[0])){
+                listeDesMois.get(0).toFront();
+                labelMoisCourant.setText(listeDesMois.get(11).getAccessibleText()+" "+ jourAuj.getAnnee());
+            }
+        });
+
+        boutonDern.setOnAction(evt ->{
+            while (!listeDesMois.get(11).getAccessibleText().equals(MOIS[11])){
+                listeDesMois.get(11).toBack();
+                labelMoisCourant.setText(listeDesMois.get(11).getAccessibleText()+" "+ jourAuj.getAnnee());
+            }
+        });
 
         this.getChildren().addAll(stackMois, boxTop);
 

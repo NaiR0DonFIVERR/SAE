@@ -5,140 +5,109 @@ public class Date {
     protected int chMois;
     protected int chAnnee;
 
-    public Date(int parJour, int parMois, int parAnnee) {
-        chJour = parJour;
-        chMois = parMois;
-        chAnnee = parAnnee;
+    public Date (int parJour, int parMois, int parAnnee)  {
+        chJour = parJour ;
+        chMois = parMois ;
+        chAnnee = parAnnee ;
     }
 
-    //Question 4
-    public Date(int parAnnee) {
-        chJour = 1;
-        chMois = 1;
-        chAnnee = parAnnee;
+    public Date ( int parAnnee)  {
+        chJour = 1 ;
+        chMois = 1 ;
+        chAnnee = parAnnee ;
     }
 
-    public Date() {
-        //System.out.println("entré le jour");
-        //chJour = Clavier.lireInt();
-        //System.out.println("entré le mois");
-        //chMois = Clavier.lireInt();
-        //System.out.println("entré l'année");
-        //chAnnee = Clavier.lireInt();
+    public Date () {
 
     }
 
-    public boolean estValide() {
-        if (chAnnee > 1582) {
-            if (chMois > 0 && chMois < 13) {
-                if (chJour > 0 && chJour < dernierJourMois(chMois, chAnnee)) {
-                    return true;
-                } else {
-                    return false;
-                }
-            } else {
-                return false;
-            }
-        } else {
-            return false;
+    /**
+     retourne true si this est une date valide
+     -  chAnnee > 1582
+     - 1 <= chMois <= 12
+     - 1 <= chJour et chJour <= dernierJourDuMois (chJour, chAnnee)
+     retourne false si
+     */
+    public boolean estValide () {
+        return chAnnee > 1582 &&
+                chMois >= 1 && chMois <= 12 &&
+                chJour >= 1 && chJour <= Date.dernierJourDuMois (chMois, chAnnee) ;
+
+    }
+
+
+    protected static int dernierJourDuMois (int parMois, int parAnnee) {
+        switch (parMois) {
+            case 2 : if (Date.estBissextile (parAnnee))
+                return 29 ;
+                return 28 ;
+            case 4 :
+            case 6 :
+            case 9 :
+            case 11 : return 30 ;
+            default : return 31 ;
         }
-
     }
 
-    private static boolean estBessextile(int parAnnee) {
+    private static boolean estBissextile(int parAnnee) {
         return (parAnnee % 4 == 0 && parAnnee % 100 != 0) || parAnnee % 400 == 0;
     }
 
-    public static int dernierJourMois(int parMois, int parAnnee) {
-        switch (parMois) {
-            case 2:
-                if (estBessextile(parAnnee) == true) return 29;
-                else return 28;
 
-            case 4:
-            case 6:
-            case 9:
-            case 11:
-                return 30;
-            default:
-                return 31;
-        }
-    }
-
-    public int compareTo(Date parDate) {
-        if (chAnnee > parDate.chAnnee) {
-            return 1;
-        }
-        if (chAnnee < parDate.chAnnee) {
+    /**
+     compare les dates this et parDate
+     retourne 0 si this et parDate sont égales
+     retroune un entier négatif si this est antérieure à parDate
+     retourne un entier positif si this es postérieure à parDate
+     */
+    public int compareTo (Date parDate) {
+        if (chAnnee < parDate.chAnnee)
+            return -8;
+        if (chAnnee > parDate.chAnnee)
+            return 19;
+        // les années sont =
+        if (chMois < parDate.chMois)
             return -1;
-        }
-        if (chMois > parDate.chMois) {
-            return 1;
-        }
-        if (chMois < parDate.chMois) {
-            return -1;
-        }
-        if (chJour > parDate.chJour) {
-            return 1;
-        }
-        if (chJour < parDate.chJour) {
-            return -1;
-        } else {
-            return 0;
-        }
+        if (chMois > parDate.chMois)
+            return 18;
+        // les mois sont =
+        if (chJour < parDate.chJour)
+            return -7;
+        if (chJour > parDate.chJour)
+            return 12;
+        return 0;
     }
 
-    public Date dateDuLendemain() {
-        int jour = chJour + 1;
-        int mois = chMois;
-        int annee = chAnnee;
-        if (jour > dernierJourMois(chMois, chAnnee)) {
-            jour = 1;
-            mois++;
-            if (mois > 13) {
-                mois = 1;
-                annee++;
-            }
-        }
-        return new Date(jour, mois, annee);
+    public Date dateDuLendemain ()   {
+        if (chJour < Date.dernierJourDuMois(chMois,chAnnee))
+            return new Date (chJour+1,chMois,chAnnee);
+        if (chMois < 12)
+            return  new Date (1,chMois+1,chAnnee);
+        return  new Date (1,1,chAnnee+1);
     }
 
-    public Date dateDeLaVeille() {
-        int jour = chJour - 1;
-        int mois = chMois;
-        int annee = chAnnee;
-        if (jour <= 0) {
-            mois--;
-            if (mois <= 0) {
-                annee--;
-                mois = 12;
-                jour = 31;
-            } else {
-                jour = dernierJourMois(chMois, chAnnee);
-            }
-        }
-        return new Date(jour, mois, annee);
+    public Date dateDeLaVeille ()  {
+        if (chJour > 1)
+            return  new Date (chJour-1,chMois,chAnnee);
+        if (chMois > 1)
+            return new Date (Date.dernierJourDuMois(chMois-1, chAnnee),chMois-1,chAnnee);
+        return new Date (31,12,chAnnee-1);
     }
 
-    /*public Date getJourMoisAnnee(){
-        ArrayList <Date> jourMoisAnnee = new ArrayList <Date> ();
-        jourMoisAnnee.add(chJour);
-        jourMoisAnnee.add(chMois);
-        jourMoisAnnee.add(chAnnee);
-        return jourMoisAnnee;
-    }*/
-
-    public int getMois(){
-        return chMois;
-    }
-
-    public  int getAnnee(){
+    public int getAnnee() {
         return chAnnee;
     }
 
-    public int getJour() { return chJour; }
-
-    public String toString() {
-        return chJour + "/" + chMois + "/" + chAnnee;
+    public int getJour() {
+        return chJour;
     }
+
+    public int getMois() {
+        return chMois;
+    }
+    public String toString () {
+        return  chJour + "-" + chMois + "-" +chAnnee;
+    }
+
+
 }

@@ -14,8 +14,6 @@ import javafx.scene.layout.VBox;
 import modele.CalendrierDuMois;
 import modele.ConstantesCalendrier;
 import modele.DateCalendrier;
-import modele_Prof.CalendrierDuMoisProf;
-import modele_Prof.DateCalendrierProf;
 
 import java.util.List;
 
@@ -25,7 +23,7 @@ public class VBoxRoot extends VBox implements ConstantesCalendrier {
 
 
         super(20);
-        CalendrierDuMoisProf dateCalendrier = new CalendrierDuMoisProf(3,2022);
+        CalendrierDuMois dateCalendrier = new CalendrierDuMois(3,2022);
         int mois = dateCalendrier.getMois();
         int annee = dateCalendrier.getAnnee();
         /*Label labelTitle = new Label(MOIS[dateCalendrier.getMois()-1] + " " + dateCalendrier.getAnnee());
@@ -80,13 +78,13 @@ public class VBoxRoot extends VBox implements ConstantesCalendrier {
         StackPane pagesMois = new StackPane();
 
         for (int i=0; i<12 ; i++){
-            CalendrierDuMoisProf calendrierMois = new CalendrierDuMoisProf(i+1, 2022);//Recupère une liste des jours du mois
+            CalendrierDuMois calendrierMois = new CalendrierDuMois(i+1, 2022);//Recupère une liste des jours du mois
 
             ScrollPane barre = new ScrollPane();
             VBox boxDate = new VBox();
             barre.setContent(boxDate);
 
-            for (DateCalendrierProf date : calendrierMois.getDates()){  //parcourt du mois
+            for (DateCalendrier date : calendrierMois.getDates()){  //parcourt du mois
 
                 Label labelDate = new Label(date.toString());
 
@@ -94,7 +92,7 @@ public class VBoxRoot extends VBox implements ConstantesCalendrier {
                     labelDate.setId("dateHorsMois");
                 }
 
-                if (date.compareTo(new DateCalendrierProf()) == 0){
+                if (date.compareTo(new DateCalendrier()) == 0){
                     labelDate.setId("Today");
                 }
 
@@ -105,7 +103,7 @@ public class VBoxRoot extends VBox implements ConstantesCalendrier {
             barre.setAccessibleText(MOIS[i]);
 
         }
-        DateCalendrierProf dateJ = new DateCalendrierProf();
+        DateCalendrier dateJ = new DateCalendrier();
         getChildren().addAll(boxTop, pagesMois);
         List<Node> listeDesTack = pagesMois.getChildren(); //transformer la stack pane en noeud
         int chiffre = listeDesTack.size()-1;

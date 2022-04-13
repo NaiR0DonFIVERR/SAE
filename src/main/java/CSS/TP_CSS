@@ -1,6 +1,11 @@
-#today {
-    -fx-text-fill : coral;
+#Today {
+    -fx-text-fill : red;
 }
+#HorsMois {
+    -fx-text-fill: gainsboro;
+}
+
+
 .scroll-pane {
     -fx-background: #ddf5ee;
     -fx-border-color: #5F9EA0;
@@ -14,4 +19,7 @@
 
 .toggle-button {
     -fx-background-color: white;
+}
+.toggle-button:selected{
+    -fx-background-color: gainsboro;
 }

@@ -14,10 +14,10 @@ public class CalendrierDuMois {
         this.annee = annee;
         treeSetDate = new TreeSet <DateCalendrier> ();
         DateCalendrier date = new DateCalendrier (1,mois,annee);
-        int indiceJour = date.getNumeroSemaine() ;
+        int indiceJour = date.getJourSemaine() ;
         for (int x = indiceJour ; x!=0 ; x--) {
             treeSetDate.add(date);
-            date = date.dateDuLendemain();
+            date = date.dateDeLaVeille();
         }
         date = new DateCalendrier (2,mois,annee);
         indiceJour = indiceJour % 7 ;
@@ -46,9 +46,8 @@ public class CalendrierDuMois {
     public int getAnnee() {
         return annee;
     }
-
     public static void main(String[]arg){
-        CalendrierDuMois calend = new CalendrierDuMois(3,2022);
+        CalendrierDuMois calend = new CalendrierDuMois(4,2022);
         System.out.println(calend);
     }
 
