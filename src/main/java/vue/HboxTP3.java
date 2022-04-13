@@ -36,7 +36,7 @@ public class HboxTP3 extends VBox implements ConstantesCalendrier {
 
                 boutonDate.setUserData(date);
                 boutonDate.setOnAction(evt ->{
-                    System.out.println("date");
+                    System.out.println(date);
                 });
                 if (date.getMois() != moisCalendrier.getMois()){
                     boutonDate.setId("HorsMois");
