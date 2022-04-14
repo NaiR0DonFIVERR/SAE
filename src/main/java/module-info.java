@@ -7,5 +7,6 @@ module com.example.classemodele {
     opens com.example.classemodele to javafx.fxml;
     exports com.example.classemodele;
     exports vue;
+    exports Controler;
 
 }

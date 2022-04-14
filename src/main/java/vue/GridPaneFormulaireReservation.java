@@ -4,16 +4,16 @@ import javafx.geometry.HPos;
 import javafx.geometry.Insets;
 import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
-import javafx.scene.shape.Box;
 import modele.ConstantesHeures;
 import modele.DateCalendrier;
 
-import java.util.ArrayList;
-import java.util.Optional;
-
 
 public class GridPaneFormulaireReservation extends GridPane implements ConstantesHeures {
+    ComboBox <String> comboHeurDebut = new ComboBox<>();
+    ComboBox <String> comboHeurFin = new ComboBox<>();
 
+    ComboBox <String> comboMinuteDebut = new ComboBox<>();
+    ComboBox <String> comboMinuteFin = new ComboBox<>();
 
 
 
@@ -52,14 +52,10 @@ public class GridPaneFormulaireReservation extends GridPane implements Constante
         labelStrCour.setMnemonicParsing(true);
         String texteCours = textCour.getText();
 
-        ComboBox <String> comboHeurDebut = new ComboBox<>();
-        ComboBox <String> comboHeurFin = new ComboBox<>();
         for (String heure : HEURE){
             comboHeurDebut.getItems().add(heure);
             comboHeurFin.getItems().add(heure);
         }
-        ComboBox <String> comboMinuteDebut = new ComboBox<>();
-        ComboBox <String> comboMinuteFin = new ComboBox<>();
         for (String minute : MINUTES){
             comboMinuteDebut.getItems().add(minute);
             comboMinuteFin.getItems().add(minute);

@@ -35,6 +35,7 @@ public class HboxTP3 extends VBox implements ConstantesCalendrier {
                 titledPane.getChildren().add(boutonDate);
 
                 boutonDate.setUserData(date);
+
                 boutonDate.setOnAction(evt ->{
                     System.out.println(date);
                 });
@@ -65,6 +66,7 @@ public class HboxTP3 extends VBox implements ConstantesCalendrier {
 
         HBox boxTop = new HBox();
         boxTop.getChildren().addAll(labelMoisCourant, boxBouton);
+
         while (!listeDesMois.get(11).getAccessibleText().equals(MOIS[jourAuj.getMois()-1]) ){
             listeDesMois.get(0).toFront();
         }
