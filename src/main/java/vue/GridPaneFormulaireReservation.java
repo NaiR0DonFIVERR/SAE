@@ -11,6 +11,11 @@ import java.util.GregorianCalendar;
 
 
 public class GridPaneFormulaireReservation extends GridPane implements ConstantesHeures {
+
+    final String [] NIVEAU = {"Débutant", "Normal", "Confirmé", "Expert"};
+    ToggleGroup radioGrou = new ToggleGroup();
+
+
     ComboBox <String> comboHeurDebut = new ComboBox<>();
     ComboBox <String> comboHeurFin = new ComboBox<>();
 
@@ -28,7 +33,15 @@ public class GridPaneFormulaireReservation extends GridPane implements Constante
 
     public GridPaneFormulaireReservation(){
         int ligne = 0;
+        for (String niveau : NIVEAU){
+            RadioButton radioButton = new RadioButton("_" + niveau);
+            radioButton.setSelected(niveau.equals(NIVEAU[0]));
 
+            radioButton.setUserData(niveau);
+
+            radioButton.setToggleGroup(radioGrou);
+            getChildren().add(radioButton);
+        }
 
 
 

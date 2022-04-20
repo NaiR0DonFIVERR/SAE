@@ -2,17 +2,13 @@ package vue;
 
 import javafx.application.Application;
 import javafx.scene.Scene;
-import javafx.scene.control.TitledPane;
-import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
 import java.io.File;
 
-public class ClientBoxTP3 extends Application {
+public class PlanningApplication extends Application {
     public void start(Stage stage) {
-        HboxTP3 Hbroot = new HboxTP3();
-        GridPaneFormulaireReservation root = new GridPaneFormulaireReservation();
-
+        HBoxRoot root = new HBoxRoot();
         Scene scene = new Scene(root, 500, 500);
         File[] fichierCss = new File("src/main/java/CSS").listFiles();
 

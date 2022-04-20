@@ -8,7 +8,7 @@ import java.io.File;
 
 public class ClientHboxGridHboxTP3 extends Application{
     public void start(Stage stage) {
-        HboxGridHboxTP3 root = new HboxGridHboxTP3();
+        HBoxRoot root = new HBoxRoot();
 
         Scene scene = new Scene(root, 500, 500);
         File[] fichierCss = new File("src/main/java/CSS").listFiles();
