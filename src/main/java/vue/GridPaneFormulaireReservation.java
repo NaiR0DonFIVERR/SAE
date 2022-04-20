@@ -7,6 +7,9 @@ import javafx.scene.layout.GridPane;
 import modele.ConstantesHeures;
 import modele.DateCalendrier;
 
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+
 
 public class GridPaneFormulaireReservation extends GridPane implements ConstantesHeures {
     ComboBox <String> comboHeurDebut = new ComboBox<>();
@@ -14,7 +17,13 @@ public class GridPaneFormulaireReservation extends GridPane implements Constante
 
     ComboBox <String> comboMinuteDebut = new ComboBox<>();
     ComboBox <String> comboMinuteFin = new ComboBox<>();
+    TextField textCour = new TextField();
 
+
+    RadioButton buttonDebut = new RadioButton();
+    RadioButton buttonNor = new RadioButton();
+    RadioButton buttonConf = new RadioButton();
+    RadioButton buttonExp = new RadioButton();
 
 
     public GridPaneFormulaireReservation(){
@@ -24,7 +33,6 @@ public class GridPaneFormulaireReservation extends GridPane implements Constante
 
         Label labelDate = new Label(dateJ.toString());
         Label labelStrCour = new Label("Cours");
-        TextField textCour = new TextField();
         Label labelNiveau = new Label("Niveau");
         Label labelNvDebu = new Label("Debutant");
         Label labelNvNor = new Label("Normal");
@@ -40,13 +48,16 @@ public class GridPaneFormulaireReservation extends GridPane implements Constante
         Label labelMF = new Label("m");
 
 
-        RadioButton buttonDebut = new RadioButton();
-        RadioButton buttonNor = new RadioButton();
-        RadioButton buttonConf = new RadioButton();
-        RadioButton buttonExp = new RadioButton();
+
+
 
         Button boutonAnnule = new Button("Annuler");
         Button boutonEnregistrer = new Button("Enregistrer");
+
+        boutonAnnule.setOnAction(evt ->{
+            Reset();
+        });
+
 
         labelStrCour.setLabelFor(textCour);
         labelStrCour.setMnemonicParsing(true);
@@ -102,6 +113,35 @@ public class GridPaneFormulaireReservation extends GridPane implements Constante
 
         this.setGridLinesVisible(true);
 
+    }
+    public void Reset(){
+        textCour.setText("");
+
+        Calendar calend = new GregorianCalendar();
+
+        int h = calend.get(Calendar.HOUR_OF_DAY);
+        String heure = String.valueOf(h);
+        int m = calend.get(Calendar.MINUTE);
+        if (m<15 & m>7){
+            m = 15;
+        }
+        else if (m<37){
+            m = 30;
+        }
+        else if (m>=37){
+            m = 45;
+        }
+        else {
+            m=0;
+        }
+        String minute = String.valueOf(m);
+        comboHeurDebut.setValue(heure);
+        comboMinuteDebut.setValue(minute);
+
+        buttonDebut.setSelected(true);
+        buttonConf.setSelected(false);
+        buttonNor.setSelected(false);
+        buttonExp.setSelected(false);
     }
 
 }
