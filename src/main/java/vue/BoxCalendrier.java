@@ -1,6 +1,5 @@
 package vue;
 
-import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.layout.*;
@@ -10,8 +9,8 @@ import modele.DateCalendrier;
 
 import java.util.List;
 
-public class HboxTP3 extends VBox implements ConstantesCalendrier {
-    public HboxTP3(){
+public class BoxCalendrier extends VBox implements ConstantesCalendrier {
+    public BoxCalendrier(){
         StackPane stackMois = new StackPane();
         ToggleGroup boutonGroup = new ToggleGroup();
 
@@ -36,9 +35,7 @@ public class HboxTP3 extends VBox implements ConstantesCalendrier {
 
                 boutonDate.setUserData(date);
 
-                boutonDate.setOnAction(evt ->{
-                    System.out.println(date);
-                });
+                boutonDate.setOnAction(HBoxRoot.getControler());
                 if (date.getMois() != moisCalendrier.getMois()){
                     boutonDate.setId("HorsMois");
                 }
