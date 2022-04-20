@@ -4,22 +4,27 @@ import Controler.Controler;
 import javafx.scene.layout.HBox;
 import modele.Planning;
 
-public class HboxGridHboxTP3 extends HBox {
+public class HBoxRoot extends HBox {
 
     private static Controler controler = new Controler();
     private static Planning planning = new Planning();
-    private static HboxTP3 calendrierPane = new HboxTP3();
+    private static BoxCalendrier calendrierPane = new BoxCalendrier();
     private static GridPaneFormulaireReservation reservationPane = new GridPaneFormulaireReservation();
 
-    public  HboxGridHboxTP3(){
-
+    public HBoxRoot(){
 
         getChildren().addAll(calendrierPane, reservationPane);
     }
     public static Planning getPlanning(){
+
         return planning;
     }
+    public static Controler getControler(){
+
+        return controler;
+    }
     public static GridPaneFormulaireReservation getReservationPane(){
+
         return reservationPane;
     }
 }

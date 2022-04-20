@@ -4,8 +4,7 @@ import javafx.geometry.HPos;
 import javafx.geometry.Insets;
 import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
-import modele.ConstantesHeures;
-import modele.DateCalendrier;
+import modele.*;
 
 import java.util.Calendar;
 import java.util.GregorianCalendar;
@@ -24,14 +23,15 @@ public class GridPaneFormulaireReservation extends GridPane implements Constante
     RadioButton buttonNor = new RadioButton();
     RadioButton buttonConf = new RadioButton();
     RadioButton buttonExp = new RadioButton();
-
+    DateCalendrier dateJ = new DateCalendrier();
+    Label labelDate = new Label(dateJ.toString());
 
     public GridPaneFormulaireReservation(){
         int ligne = 0;
 
-        DateCalendrier dateJ = new DateCalendrier();
 
-        Label labelDate = new Label(dateJ.toString());
+
+
         Label labelStrCour = new Label("Cours");
         Label labelNiveau = new Label("Niveau");
         Label labelNvDebu = new Label("Debutant");
@@ -55,8 +55,12 @@ public class GridPaneFormulaireReservation extends GridPane implements Constante
         Button boutonEnregistrer = new Button("Enregistrer");
 
         boutonAnnule.setOnAction(evt ->{
-            Reset();
+            reset();
         });
+        boutonEnregistrer.setOnAction(evt ->{
+            getReservation();
+        });
+
 
 
         labelStrCour.setLabelFor(textCour);
@@ -111,10 +115,10 @@ public class GridPaneFormulaireReservation extends GridPane implements Constante
         this.add(boutonAnnule,1,6,2,1);
         this.add(boutonEnregistrer,2,6,2,1);
 
-        this.setGridLinesVisible(true);
+       // this.setGridLinesVisible(true);
 
     }
-    public void Reset(){
+    public void reset(){
         textCour.setText("");
 
         Calendar calend = new GregorianCalendar();
@@ -142,6 +146,18 @@ public class GridPaneFormulaireReservation extends GridPane implements Constante
         buttonConf.setSelected(false);
         buttonNor.setSelected(false);
         buttonExp.setSelected(false);
+
     }
 
+
+    public Reservation getReservation(){
+        Reservation nouvelle = new Reservation(textCour.getText(), dateJ, new PlageHoraire(new Horaire(Integer.parseInt(comboHeurDebut.getValue()), Integer.parseInt(comboMinuteDebut.getValue())), new Horaire(Integer.parseInt(comboHeurFin.getValue()), Integer.parseInt(comboMinuteFin.getValue()))));
+        nouvelle.toString();
+        return nouvelle;
+    }
+
+    public void setDate(Object userData) {
+        dateJ = (DateCalendrier) userData;
+        labelDate.setText(dateJ.toString());
+    }
 }
