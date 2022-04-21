@@ -88,7 +88,10 @@ public class GridPaneFormulaireReservation extends GridPane implements Constante
             comboMinuteDebut.getItems().add(minute);
             comboMinuteFin.getItems().add(minute);
         }
-
+        comboHeurDebut.setValue("9");
+        comboMinuteDebut.setValue("0");
+        comboHeurFin.setValue("10");
+        comboMinuteFin.setValue("30");
 
 
 
@@ -154,6 +157,8 @@ public class GridPaneFormulaireReservation extends GridPane implements Constante
         String minute = String.valueOf(m);
         comboHeurDebut.setValue(heure);
         comboMinuteDebut.setValue(minute);
+        comboHeurFin.setValue(String.valueOf(h+1));
+        comboMinuteFin.setValue(minute);
 
         buttonDebut.setSelected(true);
         buttonConf.setSelected(false);
