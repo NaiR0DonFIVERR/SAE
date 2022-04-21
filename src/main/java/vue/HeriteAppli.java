@@ -6,12 +6,13 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.io.File;
+import java.io.IOException;
 
 
 public class HeriteAppli extends Application {
-    public void start(Stage stage) {
-        VBoxRoot root = new VBoxRoot();
-        Scene scene = new Scene(root, 500, 500);
+    public void start(Stage stage) throws IOException {
+        HBoxRoot2 root = new HBoxRoot2();
+        Scene scene = new Scene(root, 850, 800);
         File[] fichierCss = new File("src/main/java/CSS").listFiles();
 
         for (File fichier : fichierCss){

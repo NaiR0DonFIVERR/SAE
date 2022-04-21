@@ -1,0 +1,4 @@
+Sabelettenote -> Kokiyas
+Kokiyas -> Chenipan
+Sablaireaunote -> Kokiyas
+Chenipan -> Nénupiot

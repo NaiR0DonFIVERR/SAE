@@ -1,0 +1,16 @@
+.scroll-pane {
+    -fx-background: #ddf5ee;
+    -fx-border-color: #5F9EA0;
+}
+#BoxScenario {
+    -fx-border-color: #5F9EA0;
+}
+#boxEtape {
+    -fx-border-color: #5F9EA0;
+}
+#labelCheminEtape{
+    -fx-text-fill : coral;
+}
+#labelKilo {
+    -fx-text-fill : blue;
+}
