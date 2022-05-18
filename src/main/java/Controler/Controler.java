@@ -21,7 +21,7 @@ public class Controler implements EventHandler {
                 case "ChangeScenario":
                     try {
                         scrollPaneCli.setScoll((Scenario) ((Button) event.getSource()).getUserData());
-                        //scrollPaneVille.setScollVille((Scenario) ((Button) event.getSource()).getUserData());
+                        scrollPaneVille.setScollVille((Scenario) ((Button) event.getSource()).getUserData());
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
