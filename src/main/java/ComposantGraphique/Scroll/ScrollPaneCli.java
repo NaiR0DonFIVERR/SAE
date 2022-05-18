@@ -2,17 +2,18 @@ package ComposantGraphique.Scroll;
 
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import modele.Scenario;
 
-public class SrollPaneCli extends ScrollPane {
+import java.io.IOException;
+
+public class ScrollPaneCli extends ScrollPane {
 
     VBox vBox;
     ScrollPane scrollPane;
     VBox boxAll;
 
-    public SrollPaneCli(){
+    public ScrollPaneCli(){
         boxAll = new VBox();
         vBox = new VBox();
         scrollPane = new ScrollPane();
@@ -24,13 +25,14 @@ public class SrollPaneCli extends ScrollPane {
     }
 
 
-    public void setScoll(Scenario scenario){
+    public void setScoll(Scenario scenario)  throws IOException {
 
         delete();
         for (int i=0; i<scenario.getAcheteur().size(); i++){
             Label labelCli = new Label(scenario.getVendeur().get(i) + " --> " + scenario.getAcheteur().get(i));
             vBox.getChildren().add(labelCli);
         }
+
     }
 
     public void delete(){

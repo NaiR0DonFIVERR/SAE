@@ -5,6 +5,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.VBox;
 import modele.Scenario;
+import vue.HBoxRoot;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,6 +31,8 @@ public class BoxScenario extends VBox {
         Button button = new Button("Scenario : " + scenarioList.size());
         scenarioList.add(scenario);
         button.setUserData(scenario);
+        button.setAccessibleText("ChangeScenario");
+        button.setOnAction(HBoxRoot.getControler());
         boxScenario.getChildren().add(button);
     }
 
