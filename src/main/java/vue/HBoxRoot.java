@@ -15,10 +15,7 @@ import java.io.IOException;
 import static modele.LectureEcriture.lectureScenario;
 
 public class HBoxRoot extends HBox {
-    File fichier = new File("E:\\java\\SAé\\ClasseModele\\src\\main\\java\\fichier_txt\\scenario_0.txt");
-    File fichier1 = new File("E:\\java\\SAé\\ClasseModele\\src\\main\\java\\fichier_txt\\scenario_1_1.txt");
-    Scenario scenario = lectureScenario(fichier);
-    Scenario scenario1 = lectureScenario(fichier1);
+
 
     static ScrollPaneVille scrollPaneVille = new ScrollPaneVille();
     static ScrollPaneCli srollPaneCli = new ScrollPaneCli();
@@ -28,13 +25,17 @@ public class HBoxRoot extends HBox {
     MenuBarChoixUtilisateur boxMenu = new MenuBarChoixUtilisateur();
 
     public HBoxRoot() throws IOException {
+        File[] fichierScenario = new File("src/main/java/fichier_txt").listFiles();
+        for (File fichier : fichierScenario){
+            Scenario scenario = lectureScenario(fichier);
+
+            boxScenario.addScenario(scenario);
+        }
 
 
-        boxScenario.addScenario(scenario);
-        boxScenario.addScenario(scenario1);
 
-        scrollPaneVille.setScollVille(scenario);
-        srollPaneCli.setScoll(scenario);
+        scrollPaneVille.setScollVille(boxScenario.getScenarioList().get(0));
+        srollPaneCli.setScoll(boxScenario.getScenarioList().get(0));
 
 
         this.getChildren().add(boxMenu.getMenuBar());
