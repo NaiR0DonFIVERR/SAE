@@ -44,4 +44,7 @@ public class BoxScenario extends VBox {
         return box;
     }
 
+    public List<Scenario> getScenarioList(){
+        return scenarioList;
+    }
 }
