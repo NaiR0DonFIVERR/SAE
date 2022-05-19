@@ -6,6 +6,7 @@ import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 import modele.Scenario;
+import modele.VariableLoc;
 import vue.VBoxRoot;
 
 public class Controler implements EventHandler {
@@ -14,6 +15,7 @@ public class Controler implements EventHandler {
     public void handle(Event event) {
         ScrollPaneVille scrollPaneVille = VBoxRoot.getScrollPaneVille();
         ScrollPaneCli scrollPaneCli = VBoxRoot.getSrollPaneCli();
+        VariableLoc variableLoc = VBoxRoot.getVariableLoc();
 
         if (event.getSource() instanceof Button) {
             switch (((Button)
@@ -22,6 +24,8 @@ public class Controler implements EventHandler {
                     try {
                         scrollPaneCli.setScoll((Scenario) ((Button) event.getSource()).getUserData());
                         scrollPaneVille.setScollVille((Scenario) ((Button) event.getSource()).getUserData());
+                        variableLoc.setVariable((Scenario) ((Button) event.getSource()).getUserData());
+                        System.out.println(variableLoc);
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
