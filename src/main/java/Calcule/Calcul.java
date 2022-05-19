@@ -4,14 +4,14 @@ import modele.Scenario;
 
 import java.util.*;
 
-import static modele.DicVille.addChemin;
+import static modele.DicVille.getListChemin;
 
 public class Calcul {
 
     public static void doChemin(TreeMap<String, List<String>> dic, List<String> chemin){
         if (dic.size() == 0){
-            addChemin(chemin);
-            System.out.println(chemin);
+
+            //System.out.println(chemin);
             return;
         }
         Set set = dic.entrySet();
