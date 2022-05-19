@@ -14,6 +14,8 @@ import java.io.File;
 import java.io.IOException;
 
 import static modele.LectureEcriture.lectureScenario;
+import static modele.VariableLoc.getListVilleAch;
+import static modele.VariableLoc.getListVilleVend;
 
 public class VBoxRoot extends VBox {
 
@@ -24,6 +26,7 @@ public class VBoxRoot extends VBox {
     static Controler controler = new Controler();
     static BoxRegroup boxRegroup = new BoxRegroup();
     static VariableLoc variableLoc = new VariableLoc();
+    static DicVille dicVille = new DicVille();
 
     MenuBarChoixUtilisateur boxMenu = new MenuBarChoixUtilisateur();
 
@@ -36,6 +39,9 @@ public class VBoxRoot extends VBox {
         }
 
         variableLoc.setVariable(boxScenario.getScenarioList().get(0));
+        dicVille.setDicVille(getListVilleVend(), getListVilleAch());
+        System.out.println(dicVille);
+
         scrollPaneVille.setScollVille();
         srollPaneCli.setScoll(boxScenario.getScenarioList().get(0));
         boxRegroup.add(boxScenario.getBox());
