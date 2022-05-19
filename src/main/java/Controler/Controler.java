@@ -22,9 +22,10 @@ public class Controler implements EventHandler {
                     event.getSource()).getAccessibleText()) {
                 case "ChangeScenario":
                     try {
-                        scrollPaneCli.setScoll((Scenario) ((Button) event.getSource()).getUserData());
-                        scrollPaneVille.setScollVille((Scenario) ((Button) event.getSource()).getUserData());
                         variableLoc.setVariable((Scenario) ((Button) event.getSource()).getUserData());
+                        scrollPaneCli.setScoll((Scenario) ((Button) event.getSource()).getUserData());
+                        scrollPaneVille.setScollVille();
+
                         System.out.println(variableLoc);
                     } catch (Exception e) {
                         e.printStackTrace();

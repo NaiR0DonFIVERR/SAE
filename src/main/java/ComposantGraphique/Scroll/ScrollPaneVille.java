@@ -6,16 +6,18 @@ import modele.Scenario;
 import java.io.IOException;
 
 import static modele.LectureEcriture.recupVille;
+import static modele.VariableLoc.getListVilleAch;
+import static modele.VariableLoc.getListVilleVend;
 
 
 public class ScrollPaneVille extends ScrollPaneCli {
 
-    public void setScollVille(Scenario scenario) throws IOException {
+    public void setScollVille() {
 
         delete();
-        for (int i=0; i<scenario.getAcheteur().size();i++){
+        for (int i=0; i<getListVilleVend().size();i++){
 
-            Label labelVille = new Label(recupVille(scenario.getVendeur().get(i)) +" --> " + recupVille(scenario.getAcheteur().get(i)));
+            Label labelVille = new Label(getListVilleVend().get(i) +" --> " + getListVilleAch().get(i));
             vBox.getChildren().add(labelVille);
         }
     }

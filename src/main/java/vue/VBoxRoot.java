@@ -23,6 +23,7 @@ public class VBoxRoot extends VBox {
     static BoxScenario boxScenario = new BoxScenario();
     static Controler controler = new Controler();
     static BoxRegroup boxRegroup = new BoxRegroup();
+    static VariableLoc variableLoc = new VariableLoc();
 
     MenuBarChoixUtilisateur boxMenu = new MenuBarChoixUtilisateur();
 
@@ -34,7 +35,8 @@ public class VBoxRoot extends VBox {
             boxScenario.addScenario(scenario);
         }
 
-        scrollPaneVille.setScollVille(boxScenario.getScenarioList().get(0));
+        variableLoc.setVariable(boxScenario.getScenarioList().get(0));
+        scrollPaneVille.setScollVille();
         srollPaneCli.setScoll(boxScenario.getScenarioList().get(0));
         boxRegroup.add(boxScenario.getBox());
         boxRegroup.add(srollPaneCli.getBoxAll());
@@ -55,6 +57,9 @@ public class VBoxRoot extends VBox {
     }
     public static Controler getControler(){
         return controler;
+    }
+    public static VariableLoc getVariableLoc(){
+        return variableLoc;
     }
 
 

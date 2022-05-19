@@ -9,8 +9,8 @@ import static modele.LectureEcriture.recupVille;
 
 public class VariableLoc {
 
-    List<String> listVilleVend;
-    List<String> listVilleAch;
+    static List<String> listVilleVend;
+    static List<String> listVilleAch;
 
     public VariableLoc(){
         listVilleVend = new ArrayList<>();
@@ -26,10 +26,10 @@ public class VariableLoc {
         }
     }
 
-    public List<String> getListVilleVend(){
+    public static List<String> getListVilleVend(){
         return listVilleVend;
     }
-    public List<String> getListVilleAch(){
+    public static List<String> getListVilleAch(){
         return listVilleAch;
     }
     public String toString(){
