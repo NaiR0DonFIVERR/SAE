@@ -26,6 +26,10 @@ public class DicVille {
         return listChemin;
     }
 
+    public TreeMap<String, List<String>> getDicVille(){
+        return dicVille;
+    }
+
     public static void delet(){
         dicVille = new TreeMap<>();
         listChemin = new ArrayList<>();
