@@ -1,11 +1,12 @@
 package vue;
 
+import ComposantGraphique.Box.BoxRegroup;
 import ComposantGraphique.Box.BoxScenario;
 import ComposantGraphique.Box.MenuBarChoixUtilisateur;
 import ComposantGraphique.Scroll.ScrollPaneVille;
 import ComposantGraphique.Scroll.ScrollPaneCli;
 import Controler.Controler;
-import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import modele.*;
 
 
@@ -14,17 +15,18 @@ import java.io.IOException;
 
 import static modele.LectureEcriture.lectureScenario;
 
-public class HBoxRoot extends HBox {
+public class VBoxRoot extends VBox {
 
 
     static ScrollPaneVille scrollPaneVille = new ScrollPaneVille();
     static ScrollPaneCli srollPaneCli = new ScrollPaneCli();
     static BoxScenario boxScenario = new BoxScenario();
     static Controler controler = new Controler();
+    static BoxRegroup boxRegroup = new BoxRegroup();
 
     MenuBarChoixUtilisateur boxMenu = new MenuBarChoixUtilisateur();
 
-    public HBoxRoot() throws IOException {
+    public VBoxRoot() throws IOException {
         File[] fichierScenario = new File("src/main/java/fichier_txt").listFiles();
         for (File fichier : fichierScenario){
             Scenario scenario = lectureScenario(fichier);
@@ -32,16 +34,14 @@ public class HBoxRoot extends HBox {
             boxScenario.addScenario(scenario);
         }
 
-
-
         scrollPaneVille.setScollVille(boxScenario.getScenarioList().get(0));
         srollPaneCli.setScoll(boxScenario.getScenarioList().get(0));
-
+        boxRegroup.add(boxScenario.getBox());
+        boxRegroup.add(srollPaneCli.getBoxAll());
+        boxRegroup.add(scrollPaneVille.getBoxAll());
 
         this.getChildren().add(boxMenu.getMenuBar());
-        this.getChildren().add(boxScenario.getBox());
-        this.getChildren().add(srollPaneCli.getBoxAll());
-        this.getChildren().add(scrollPaneVille.getBoxAll());
+        this.getChildren().add(boxRegroup.getBox());
     }
 
     public static ScrollPaneVille getScrollPaneVille(){

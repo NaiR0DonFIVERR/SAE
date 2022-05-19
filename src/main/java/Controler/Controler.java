@@ -6,14 +6,14 @@ import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 import modele.Scenario;
-import vue.HBoxRoot;
+import vue.VBoxRoot;
 
 public class Controler implements EventHandler {
 
     @Override
     public void handle(Event event) {
-        ScrollPaneVille scrollPaneVille = HBoxRoot.getScrollPaneVille();
-        ScrollPaneCli scrollPaneCli = HBoxRoot.getSrollPaneCli();
+        ScrollPaneVille scrollPaneVille = VBoxRoot.getScrollPaneVille();
+        ScrollPaneCli scrollPaneCli = VBoxRoot.getSrollPaneCli();
 
         if (event.getSource() instanceof Button) {
             switch (((Button)

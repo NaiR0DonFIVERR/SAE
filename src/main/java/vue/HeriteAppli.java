@@ -10,7 +10,7 @@ import java.io.IOException;
 
 public class HeriteAppli extends Application {
     public void start(Stage stage) throws IOException {
-        HBoxRoot root = new HBoxRoot();
+        VBoxRoot root = new VBoxRoot();
         Scene scene = new Scene(root, 850, 800);
         File[] fichierCss = new File("src/main/java/CSS").listFiles();
 
