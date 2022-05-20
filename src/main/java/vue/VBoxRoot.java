@@ -3,6 +3,7 @@ package vue;
 import ComposantGraphique.Box.BoxRegroup;
 import ComposantGraphique.Box.BoxScenario;
 import ComposantGraphique.Box.MenuBarChoixUtilisateur;
+import ComposantGraphique.Box.VBoxChemin;
 import ComposantGraphique.Scroll.ScrollPaneVille;
 import ComposantGraphique.Scroll.ScrollPaneCli;
 import Controler.Controler;
@@ -12,7 +13,9 @@ import modele.*;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 
+import static Calcule.Calcul.doChemin;
 import static modele.LectureEcriture.lectureScenario;
 import static modele.VariableLoc.getListVilleAch;
 import static modele.VariableLoc.getListVilleVend;
@@ -27,6 +30,7 @@ public class VBoxRoot extends VBox {
     static BoxRegroup boxRegroup = new BoxRegroup();
     static VariableLoc variableLoc = new VariableLoc();
     static DicVille dicVille = new DicVille();
+    static VBoxChemin vBoxChemin = new VBoxChemin();
 
     MenuBarChoixUtilisateur boxMenu = new MenuBarChoixUtilisateur();
 
@@ -40,7 +44,10 @@ public class VBoxRoot extends VBox {
 
         variableLoc.setVariable(boxScenario.getScenarioList().get(0));
         dicVille.setDicVille(getListVilleVend(), getListVilleAch());
-        System.out.println(dicVille);
+        dicVille.doChemin(dicVille.getDicVille(), new ArrayList<>());
+        //System.out.println(dicVille.getListChemin());
+        vBoxChemin.setAllChemin(dicVille.getListChemin());
+
 
         scrollPaneVille.setScollVille();
         srollPaneCli.setScoll(boxScenario.getScenarioList().get(0));
@@ -50,6 +57,7 @@ public class VBoxRoot extends VBox {
 
         this.getChildren().add(boxMenu.getMenuBar());
         this.getChildren().add(boxRegroup.getBox());
+        this.getChildren().add(vBoxChemin.getBoxAll());
     }
 
     public static ScrollPaneVille getScrollPaneVille(){
@@ -66,6 +74,9 @@ public class VBoxRoot extends VBox {
     }
     public static VariableLoc getVariableLoc(){
         return variableLoc;
+    }
+    public static DicVille getDicVille(){
+        return dicVille;
     }
 
 

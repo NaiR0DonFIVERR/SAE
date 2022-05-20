@@ -6,8 +6,8 @@ import static Calcule.Calcul.doVoisinsEntrant;
 
 public class DicVille {
 
-    static TreeMap<String, List<String>> dicVille;
-    static List<List<String>> listChemin;
+     TreeMap<String, List<String>> dicVille;
+     List<List<String>> listChemin;
 
     public DicVille(){
         dicVille = new TreeMap<>();
@@ -21,8 +21,8 @@ public class DicVille {
 
     public void doChemin(TreeMap<String, List<String>> dic, List<String> chemin){
         if (dic.size() == 0){
-            listChemin.add(chemin);
-            System.out.println(chemin);
+            listChemin.add(new ArrayList<>(chemin));    //Instantier une nouvelle liste -> comme on remove chemin, la liste aussi se remove
+            //System.out.println(chemin);
             return;
         }
         Set set = dic.entrySet();
@@ -93,7 +93,7 @@ public class DicVille {
         return listVoisinSortant;
     }
 
-    public static List<List<String>>getListChemin(){
+    public List<List<String>>getListChemin(){
         return listChemin;
     }
 
@@ -101,7 +101,7 @@ public class DicVille {
         return dicVille;
     }
 
-    public static void delet(){
+    public void delet(){
         dicVille = new TreeMap<>();
         listChemin = new ArrayList<>();
     }
