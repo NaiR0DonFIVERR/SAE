@@ -11,6 +11,9 @@
 #labelCheminEtape{
     -fx-text-fill : coral;
 }
+#labelKilo {
+    -fx-text-fill : blue;
+}
 #labelDISTANCE{
     -fx-text-fill : blue;
 }

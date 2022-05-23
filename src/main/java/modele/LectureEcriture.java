@@ -12,16 +12,7 @@ public class LectureEcriture {
     File fichierMembre = new File("src/main/java/Données/membres_APLI.txt");
     BufferedReader bufferedReaderMembre = new BufferedReader(new FileReader(fichierMembre));
 
-    static File fichierDistance = new File("src/main/java/Données/distances.txt");
-    static BufferedReader bufferedReaderDistance;
 
-    static {
-        try {
-            bufferedReaderDistance = new BufferedReader(new FileReader(fichierDistance));
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-    }
 
     public LectureEcriture() throws FileNotFoundException {
     }
@@ -84,18 +75,48 @@ public class LectureEcriture {
         return ville_indice;
 
     }
+    //Methode qui appelera la methode getIndiceDistance pour retourner un entier (qui sera la distance entre deux villes)
+    public static int getDistance(String villeDepart, String villeArrive) throws IOException {
+        File fichier = new File("src/main/java/Données/distances.txt");
+        BufferedReader bufferedReader = new BufferedReader(new FileReader(fichier));
+
+        //System.out.println("ville entrante " + villeDepart);
+        int Distance = 0;
+        String ligne ;
+        StringTokenizer tokenizer;
+        for (int i=0;i<getIndiceDistance(villeDepart)+1; i++){
+            ligne = bufferedReader.readLine();
+            tokenizer = new StringTokenizer(ligne," ");
+            String tokenVille = tokenizer.nextToken();
+            if (i == getIndiceDistance(villeDepart)) {
+                //System.out.println(tokenVille);
+                for (int y=0;y<getIndiceDistance(villeArrive)+1;y++){
+                    String tokenVilleAR = tokenizer.nextToken();
+                    if (y == getIndiceDistance(villeArrive)) {
+                        Distance = Integer.parseInt(tokenVilleAR);
+                    }
+                }
+            }
+        }
+        return Distance;
+    }
+
+
     public static int getIndiceDistance(String ville) throws IOException {
+        File fichier = new File("src/main/java/Données/distances.txt");
+        BufferedReader bufferedReader = new BufferedReader(new FileReader(fichier));
+
         int Indice = 0;
         int compte = 0;
         String ligne ;
         StringTokenizer tokenizer;
         do{
-            ligne = bufferedReaderDistance.readLine();
+            ligne = bufferedReader.readLine();
             if (ligne != null){
                 tokenizer = new StringTokenizer(ligne," ");
                 String tokenVille = tokenizer.nextToken();
                 if (tokenVille.equals(ville)){
-                    System.out.println(ville + " " +compte);
+                    //System.out.println(ville + " " +compte);
                     Indice = compte;
                     break;
                 }
@@ -103,7 +124,7 @@ public class LectureEcriture {
             }
         }
         while (ligne != null);
-        bufferedReaderDistance.close();
+        bufferedReader.close();
         return Indice;
     }
 
