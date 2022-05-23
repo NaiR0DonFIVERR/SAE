@@ -1,9 +1,6 @@
 package vue;
 
-import ComposantGraphique.Box.BoxRegroup;
-import ComposantGraphique.Box.BoxScenario;
-import ComposantGraphique.Box.MenuBarChoixUtilisateur;
-import ComposantGraphique.Box.VBoxChemin;
+import ComposantGraphique.Box.*;
 import ComposantGraphique.Scroll.ScrollPaneVille;
 import ComposantGraphique.Scroll.ScrollPaneCli;
 import Controler.Controler;
@@ -31,6 +28,7 @@ public class VBoxRoot extends VBox {
     static VariableLoc variableLoc = new VariableLoc();
     static DicVille dicVille = new DicVille();
     static VBoxChemin vBoxChemin = new VBoxChemin();
+    static VBoxTroisChemins vBoxTroisChemins = new VBoxTroisChemins();
 
     MenuBarChoixUtilisateur boxMenu = new MenuBarChoixUtilisateur();
 
@@ -49,6 +47,7 @@ public class VBoxRoot extends VBox {
         vBoxChemin.setAllChemin(dicVille.getListChemin());
 
 
+
         scrollPaneVille.setScollVille();
         srollPaneCli.setScoll(boxScenario.getScenarioList().get(0));
         boxRegroup.add(boxScenario.getBox());
@@ -58,6 +57,7 @@ public class VBoxRoot extends VBox {
         this.getChildren().add(boxMenu.getMenuBar());
         this.getChildren().add(boxRegroup.getBox());
         this.getChildren().add(vBoxChemin.getBoxAll());
+        this.getChildren().add(vBoxTroisChemins.getBoxAll());
     }
 
     public static ScrollPaneVille getScrollPaneVille(){
@@ -77,6 +77,9 @@ public class VBoxRoot extends VBox {
     }
     public static DicVille getDicVille(){
         return dicVille;
+    }
+    public static VBoxTroisChemins getvBoxTroisChemins(){
+        return vBoxTroisChemins;
     }
 
 
