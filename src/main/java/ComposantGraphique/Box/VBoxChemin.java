@@ -18,7 +18,7 @@ public class VBoxChemin extends VBox {
 
 
     VBox boxAll;
-    List<HBox> hBoxList;
+    static List<HBox> hBoxList;
 
     public VBoxChemin(){
         boxAll = new VBox();
@@ -88,6 +88,8 @@ public class VBoxChemin extends VBox {
     public void delete1(){
 
     }
+
+    public static List<HBox> gethBoxList(){return hBoxList;}
 
     public VBox getBoxAll(){
         return boxAll;
