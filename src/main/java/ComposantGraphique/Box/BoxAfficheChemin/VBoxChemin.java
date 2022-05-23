@@ -1,4 +1,4 @@
-package ComposantGraphique.Box;
+package ComposantGraphique.Box.BoxAfficheChemin;
 
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;

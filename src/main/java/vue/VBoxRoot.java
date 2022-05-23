@@ -1,6 +1,8 @@
 package vue;
 
 import ComposantGraphique.Box.*;
+import ComposantGraphique.Box.BoxAfficheChemin.VBoxChemin;
+import ComposantGraphique.Box.BoxAfficheChemin.VBoxTroisChemins;
 import ComposantGraphique.Scroll.ScrollPaneVille;
 import ComposantGraphique.Scroll.ScrollPaneCli;
 import Controler.Controler;
@@ -12,7 +14,6 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import static Calcule.Calcul.doChemin;
 import static modele.LectureEcriture.lectureScenario;
 import static modele.VariableLoc.getListVilleAch;
 import static modele.VariableLoc.getListVilleVend;

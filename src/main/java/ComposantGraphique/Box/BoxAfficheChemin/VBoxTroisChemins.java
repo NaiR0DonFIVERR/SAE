@@ -1,12 +1,11 @@
-package ComposantGraphique.Box;
+package ComposantGraphique.Box.BoxAfficheChemin;
 
-import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
-import static ComposantGraphique.Box.VBoxChemin.gethBoxList;
+import static ComposantGraphique.Box.BoxAfficheChemin.VBoxChemin.gethBoxList;
 
-public class VBoxTroisChemins {
+public class VBoxTroisChemins extends VBox{
 
     VBox boxAll;
     VBox boxOne;
@@ -20,8 +19,8 @@ public class VBoxTroisChemins {
     }
 
     public void setBoxAll(){
-        boxOne.getChildren().add(gethBoxList().get(0));
-        boxTwo.getChildren().addAll(gethBoxList().get(1), gethBoxList().get(2));
+        boxOne.getChildren().add(gethBoxList().get(0).getChildren().get(0));
+
 
     }
 
