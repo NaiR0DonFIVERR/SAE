@@ -5,6 +5,7 @@ module com.example.classemodele {
     requires org.controlsfx.controls;
     requires java.desktop;
 
+
     opens com.example.classemodele to javafx.fxml;
     exports com.example.classemodele;
     exports vue;

@@ -45,7 +45,7 @@ public class VBoxRoot extends VBox {
         dicVille.doChemin(dicVille.getDicVille(), new ArrayList<>());
         //System.out.println(dicVille.getListChemin());
         vBoxChemin.setAllChemin(dicVille.getListChemin());
-
+        vBoxTroisChemins.setBoxAll();
 
 
         scrollPaneVille.setScollVille();
@@ -56,7 +56,7 @@ public class VBoxRoot extends VBox {
 
         this.getChildren().add(boxMenu.getMenuBar());
         this.getChildren().add(boxRegroup.getBox());
-        this.getChildren().add(vBoxChemin.getBoxAll());
+        //this.getChildren().add(vBoxChemin.getBoxAll());
         this.getChildren().add(vBoxTroisChemins.getBoxAll());
     }
 

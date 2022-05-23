@@ -4,26 +4,24 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
+import static ComposantGraphique.Box.VBoxChemin.gethBoxList;
+
 public class VBoxTroisChemins {
 
     VBox boxAll;
+    VBox boxOne;
     HBox boxTwo;
 
     public VBoxTroisChemins(){
-        VBox box1 = new VBox();
-        VBox box2 = new VBox();
-        VBox box3 = new VBox();
-
-        box1.getChildren().addAll(new Label("Chemin 1"));
-        box2.getChildren().addAll(new Label("Chemin 2"));
-        box3.getChildren().addAll(new Label("Chemin 3"));
+        boxOne = new VBox();
         boxAll = new VBox();
         boxTwo = new HBox();
-        boxTwo.getChildren().addAll(box2, box3);
-        boxAll.getChildren().addAll(box1, boxTwo);
+        boxAll.getChildren().addAll(boxOne, boxTwo);
     }
 
     public void setBoxAll(){
+        boxOne.getChildren().add(gethBoxList().get(0));
+        boxTwo.getChildren().addAll(gethBoxList().get(1), gethBoxList().get(2));
 
     }
 
