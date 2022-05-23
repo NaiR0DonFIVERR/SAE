@@ -9,6 +9,23 @@ import java.util.Objects;
 import java.util.StringTokenizer;
 
 public class LectureEcriture {
+    File fichierMembre = new File("src/main/java/Données/membres_APLI.txt");
+    BufferedReader bufferedReaderMembre = new BufferedReader(new FileReader(fichierMembre));
+
+    static File fichierDistance = new File("src/main/java/Données/distances.txt");
+    static BufferedReader bufferedReaderDistance;
+
+    static {
+        try {
+            bufferedReaderDistance = new BufferedReader(new FileReader(fichierDistance));
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public LectureEcriture() throws FileNotFoundException {
+    }
+
     public static Scenario lectureScenario (File fichier) throws IOException {
         Scenario scenario = new Scenario();
         BufferedReader bufferEntree = new BufferedReader(new FileReader(fichier));
@@ -67,6 +84,31 @@ public class LectureEcriture {
         return ville_indice;
 
     }
+    public static int getIndiceDistance(String ville) throws IOException {
+        int Indice = 0;
+        int compte = 0;
+        String ligne ;
+        StringTokenizer tokenizer;
+        do{
+            ligne = bufferedReaderDistance.readLine();
+            if (ligne != null){
+                tokenizer = new StringTokenizer(ligne," ");
+                String tokenVille = tokenizer.nextToken();
+                if (tokenVille.equals(ville)){
+                    System.out.println(ville + " " +compte);
+                    Indice = compte;
+                    break;
+                }
+                compte ++;
+            }
+        }
+        while (ligne != null);
+        bufferedReaderDistance.close();
+        return Indice;
+    }
+
+
+
     public static List<String> lectureDistance(String villeDepart, String villeArr) throws IOException{
         File fichier = new File("src/main/java/Données/distances.txt");
         BufferedReader bufferEntree = new BufferedReader(new FileReader(fichier));
