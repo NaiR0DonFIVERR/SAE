@@ -1,17 +1,19 @@
 package modele;
 
+import java.io.IOException;
 import java.util.*;
 
 import static Calcule.Calcul.doVoisinsEntrant;
+import static modele.LectureEcriture.getDistance;
 
 public class DicVille {
 
      TreeMap<String, List<String>> dicVille;
-     List<List<String>> listChemin;
+     TreeMap<Integer, List<String>> listChemin;
 
     public DicVille(){
         dicVille = new TreeMap<>();
-        listChemin = new ArrayList<>();
+        listChemin = new TreeMap<>();
     }
 
     public void setDicVille(List<String> listVilleVend, List<String> listVilleAch){
@@ -19,9 +21,15 @@ public class DicVille {
     }
 
 
-    public void doChemin(TreeMap<String, List<String>> dic, List<String> chemin){
+    public void doChemin(TreeMap<String, List<String>> dic, List<String> chemin) throws IOException {
         if (dic.size() == 0){
-            listChemin.add(new ArrayList<>(chemin));    //Instantier une nouvelle liste -> comme on remove chemin, la liste aussi se remove
+            int DISTANCE = 0;
+            for (int i=0;i<chemin.size()-1;i++){
+                int DIST = getDistance(chemin.get(i), chemin.get(i+1));
+                DISTANCE = DISTANCE + DIST;
+            }
+
+            listChemin.put(DISTANCE,new ArrayList<>(chemin));    //Instantier une nouvelle liste -> comme on remove chemin, la liste aussi se remove
             //System.out.println(chemin);
             return;
         }
@@ -93,7 +101,7 @@ public class DicVille {
         return listVoisinSortant;
     }
 
-    public List<List<String>>getListChemin(){
+    public TreeMap<Integer, List<String>>getListChemin(){
         return listChemin;
     }
 
@@ -103,7 +111,7 @@ public class DicVille {
 
     public void delet(){
         dicVille = new TreeMap<>();
-        listChemin = new ArrayList<>();
+        listChemin = new TreeMap<>();
     }
 
     public String toString(){
