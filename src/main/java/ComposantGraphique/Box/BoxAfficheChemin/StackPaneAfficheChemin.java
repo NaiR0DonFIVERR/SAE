@@ -23,12 +23,18 @@ public class StackPaneAfficheChemin extends StackPane {
         vBoxTroisChemins = new VBoxTroisChemins();
         vBoxPremierChemin = new VBoxPremierChemin();
         components = new Node[3];
+
+        vBoxPremierChemin.getBox().setAccessibleText("0");
+        vBoxTroisChemins.getBoxAll().setAccessibleText("1");
+        vBoxChemin.getBoxAll().setAccessibleText("2");
+
         components [0] = vBoxChemin.getBoxAll();
         components [1] = vBoxTroisChemins.getBoxAll();
         components [2] = vBoxPremierChemin.getBox();
+
         stackPane = new StackPane(components);
 
-        stackPane.getChildren().get(1).toFront();
+        stackPane.getChildren().get(0).toFront();
 
     }
 
