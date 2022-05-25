@@ -36,7 +36,7 @@ public class VBoxChemin extends VBox {
     public void setAllChemin(TreeMap<Integer, List<String>> chemin) throws IOException {
 
         System.out.println(chemin);
-        //delete1();
+        delete();
         Set set = chemin.entrySet();
         Iterator iterator = set.iterator();
         int NBCHEMIN = 0;
@@ -83,7 +83,11 @@ public class VBoxChemin extends VBox {
         boxAll.getChildren().add(scrollPane);
     }*/
 
-    public void delete1(){
+    public void delete(){
+
+        hBoxList.get(0).getChildren().removeAll();
+        hBoxList.get(1).getChildren().removeAll();
+        hBoxList.get(2).getChildren().removeAll();
 
     }
 

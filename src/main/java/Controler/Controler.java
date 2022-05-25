@@ -1,5 +1,6 @@
 package Controler;
 
+import ComposantGraphique.Box.BoxAfficheChemin.StackPaneAfficheChemin;
 import ComposantGraphique.Scroll.ScrollPaneCli;
 import ComposantGraphique.Scroll.ScrollPaneVille;
 
@@ -10,12 +11,14 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.StackPane;
 import modele.DicVille;
 import modele.Scenario;
 import modele.VariableLoc;
 import vue.VBoxRoot;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 import static Calcule.Calcul.doChemin;
 import static modele.VariableLoc.getListVilleAch;
@@ -53,6 +56,12 @@ public class Controler implements EventHandler {
             switch (((RadioButton)
                  event.getSource()).getAccessibleText()) {
                 case "ChangeAffichageChemin":
+                    StackPane stackPane = (StackPane) hBox.getChildren().get(1);    //Récupère la stackPane de la box
+                    int VALEUR = Integer.parseInt(stackPane.getChildren().get(2).getAccessibleText());
+                    int CHOIX_UTILI = (int) ((RadioButton) event.getSource()).getUserData();
+                    while (Integer.parseInt(stackPane.getChildren().get(2).getAccessibleText()) != (int) ((RadioButton) event.getSource()).getUserData()){
+                        stackPane.getChildren().get(2).toBack();
+                    }
                     System.out.println(((RadioButton) event.getSource()).getUserData());
             }
         }
