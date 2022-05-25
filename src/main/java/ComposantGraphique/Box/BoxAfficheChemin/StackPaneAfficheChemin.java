@@ -4,8 +4,6 @@ import javafx.scene.Node;
 import javafx.scene.layout.StackPane;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 import java.util.TreeMap;
 
@@ -41,8 +39,9 @@ public class StackPaneAfficheChemin extends StackPane {
     public void setStackPane(TreeMap<Integer, List<String>> chemin) throws IOException {
 
         vBoxChemin.setAllChemin(chemin);
-        vBoxTroisChemins.setBoxAll();
         vBoxPremierChemin.setBox();
+        vBoxTroisChemins.setBoxAll();
+
 
 
     }

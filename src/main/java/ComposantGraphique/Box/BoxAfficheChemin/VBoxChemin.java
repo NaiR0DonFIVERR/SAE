@@ -22,10 +22,6 @@ public class VBoxChemin extends VBox {
     public VBoxChemin(){
         boxAll = new VBox();
         hBoxList = new ArrayList<>();
-        //scrollPane = new ScrollPane();
-        //box = new VBox();
-        //scrollPane.setContent(box);
-        //boxAll.getChildren().add(scrollPane);
         for (int i=0;i<3;i++){
             HBox regroupBoxChemin = new HBox();
             boxAll.getChildren().add(regroupBoxChemin);

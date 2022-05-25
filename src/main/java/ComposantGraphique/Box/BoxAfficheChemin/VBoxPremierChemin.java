@@ -13,7 +13,9 @@ public class VBoxPremierChemin {
     }
 
     public void setBox(){
+        box.getChildren().removeAll();
         box.getChildren().add(gethBoxList().get(0).getChildren().get(0));
+        System.out.println("taille" + gethBoxList().get(0).getChildren().size());
     }
 
     public VBox getBox(){

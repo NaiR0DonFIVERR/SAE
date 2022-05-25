@@ -1,5 +1,6 @@
 package Controler;
 
+import ComposantGraphique.Box.BoxAfficheChemin.GridPaneChoixAfficheChemin;
 import ComposantGraphique.Box.BoxAfficheChemin.StackPaneAfficheChemin;
 import ComposantGraphique.Scroll.ScrollPaneCli;
 import ComposantGraphique.Scroll.ScrollPaneVille;
@@ -33,6 +34,8 @@ public class Controler implements EventHandler {
         VariableLoc variableLoc = VBoxRoot.getVariableLoc();
         DicVille dicVille = VBoxRoot.getDicVille();
         HBox hBox = VBoxRoot.getBox_boxMenu_stackPane();
+        StackPaneAfficheChemin stackPaneAfficheChemin = VBoxRoot.getStackPaneAfficheChemin();
+        StackPane stackPane = (StackPane) hBox.getChildren().get(1);
 
         if (event.getSource() instanceof Button) {
             switch (((Button)
@@ -44,6 +47,7 @@ public class Controler implements EventHandler {
                         scrollPaneVille.setScollVille();
                         dicVille.setDicVille(getListVilleVend(), getListVilleAch());
                         doChemin(dicVille.getDicVille(), new ArrayList<>());
+                        //stackPaneAfficheChemin.setStackPane(dicVille.getListChemin());
 
                     } catch (Exception e) {
                         e.printStackTrace();
@@ -56,9 +60,8 @@ public class Controler implements EventHandler {
             switch (((RadioButton)
                  event.getSource()).getAccessibleText()) {
                 case "ChangeAffichageChemin":
-                    StackPane stackPane = (StackPane) hBox.getChildren().get(1);    //Récupère la stackPane de la box
-                    int VALEUR = Integer.parseInt(stackPane.getChildren().get(2).getAccessibleText());
-                    int CHOIX_UTILI = (int) ((RadioButton) event.getSource()).getUserData();
+                        //Récupère la stackPane de la box
+
                     while (Integer.parseInt(stackPane.getChildren().get(2).getAccessibleText()) != (int) ((RadioButton) event.getSource()).getUserData()){
                         stackPane.getChildren().get(2).toBack();
                     }
