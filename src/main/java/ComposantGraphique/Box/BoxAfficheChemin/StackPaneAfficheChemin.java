@@ -15,20 +15,21 @@ public class StackPaneAfficheChemin extends StackPane {
     VBoxChemin vBoxChemin;
     VBoxTroisChemins vBoxTroisChemins;
     VBoxPremierChemin vBoxPremierChemin;
-    List<Node> list;
+    Node [] components;
 
     public StackPaneAfficheChemin(){
 
-        stackPane = new StackPane();
         vBoxChemin = new VBoxChemin();
         vBoxTroisChemins = new VBoxTroisChemins();
         vBoxPremierChemin = new VBoxPremierChemin();
+        components = new Node[3];
+        components [0] = vBoxChemin.getBoxAll();
+        components [1] = vBoxTroisChemins.getBoxAll();
+        components [2] = vBoxPremierChemin.getBox();
+        stackPane = new StackPane(components);
 
-        stackPane.getChildren().add(vBoxChemin.getBoxAll());
-        stackPane.getChildren().add(vBoxTroisChemins.getBoxAll());
-        stackPane.getChildren().add(vBoxPremierChemin.getBox());
-        list = new ArrayList<>(stackPane.getChildren());
-        list.get(1).toFront();
+        stackPane.getChildren().get(1).toFront();
+
     }
 
     public void setStackPane(TreeMap<Integer, List<String>> chemin) throws IOException {
