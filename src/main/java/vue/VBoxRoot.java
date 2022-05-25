@@ -1,6 +1,8 @@
 package vue;
 
 import ComposantGraphique.Box.*;
+import ComposantGraphique.Box.BoxAfficheChemin.GridPaneChoixAfficheChemin;
+import ComposantGraphique.Box.BoxAfficheChemin.StackPaneAfficheChemin;
 import ComposantGraphique.Box.BoxAfficheChemin.VBoxChemin;
 import ComposantGraphique.Box.BoxAfficheChemin.VBoxTroisChemins;
 import ComposantGraphique.Scroll.ScrollPaneVille;
@@ -28,9 +30,16 @@ public class VBoxRoot extends VBox {
     static BoxRegroup boxRegroup = new BoxRegroup();
     static VariableLoc variableLoc = new VariableLoc();
     static DicVille dicVille = new DicVille();
+    static StackPaneAfficheChemin stackPaneAfficheChemin = new StackPaneAfficheChemin();
+
+    /*
     static VBoxChemin vBoxChemin = new VBoxChemin();
     static VBoxTroisChemins vBoxTroisChemins = new VBoxTroisChemins();
+    static GridPaneChoixAfficheChemin gridPaneChoixAfficheChemin = new GridPaneChoixAfficheChemin();
 
+
+
+     */
     MenuBarChoixUtilisateur boxMenu = new MenuBarChoixUtilisateur();
 
     public VBoxRoot() throws IOException {
@@ -45,8 +54,9 @@ public class VBoxRoot extends VBox {
         dicVille.setDicVille(getListVilleVend(), getListVilleAch());
         dicVille.doChemin(dicVille.getDicVille(), new ArrayList<>());
         //System.out.println(dicVille.getListChemin());
-        vBoxChemin.setAllChemin(dicVille.getListChemin());
-        vBoxTroisChemins.setBoxAll();
+        //vBoxChemin.setAllChemin(dicVille.getListChemin());
+        //vBoxTroisChemins.setBoxAll();
+        stackPaneAfficheChemin.setStackPane(dicVille.getListChemin());
 
 
         scrollPaneVille.setScollVille();
@@ -57,8 +67,10 @@ public class VBoxRoot extends VBox {
 
         this.getChildren().add(boxMenu.getMenuBar());
         this.getChildren().add(boxRegroup.getBox());
+        this.getChildren().add(stackPaneAfficheChemin.getStackPane());
         //this.getChildren().add(vBoxChemin.getBoxAll());
-        this.getChildren().add(vBoxTroisChemins.getBoxAll());
+        //this.getChildren().add(vBoxTroisChemins.getBoxAll());
+        //this.getChildren().add(gridPaneChoixAfficheChemin.getGridPane());
     }
 
     public static ScrollPaneVille getScrollPaneVille(){
@@ -79,9 +91,10 @@ public class VBoxRoot extends VBox {
     public static DicVille getDicVille(){
         return dicVille;
     }
+    /*
     public static VBoxTroisChemins getvBoxTroisChemins(){
         return vBoxTroisChemins;
-    }
+    }*/
 
 
 }
