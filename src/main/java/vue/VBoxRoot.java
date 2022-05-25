@@ -90,6 +90,9 @@ public class VBoxRoot extends VBox {
     public static HBox getBox_boxMenu_stackPane(){
         return box_boxMenu_stackPane;
     }
+    public static StackPaneAfficheChemin getStackPaneAfficheChemin(){
+        return stackPaneAfficheChemin;
+    }
 
 
 
