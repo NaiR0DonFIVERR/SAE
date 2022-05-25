@@ -5,6 +5,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.GridPane;
+import vue.VBoxRoot;
 
 import static Constantes.ConstantesMenu.CHOIX_CHEMIN;
 
@@ -28,6 +29,8 @@ public class GridPaneChoixAfficheChemin extends GridPane {
             RadioButton button = new RadioButton(CHOIX_CHEMIN[i]);
             button.setUserData(i);
             button.setToggleGroup(toggleGroup);
+            button.setAccessibleText("ChangeAffichageChemin");
+            button.setOnAction(VBoxRoot.getControler());
             gridPane.add(button, i,1+i%2,1,1);
         }
     }

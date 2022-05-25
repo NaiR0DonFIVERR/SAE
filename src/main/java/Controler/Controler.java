@@ -6,6 +6,10 @@ import ComposantGraphique.Scroll.ScrollPaneVille;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
+import javafx.scene.control.RadioButton;
+import javafx.scene.control.ToggleButton;
+import javafx.scene.control.ToggleGroup;
+import javafx.scene.layout.HBox;
 import modele.DicVille;
 import modele.Scenario;
 import modele.VariableLoc;
@@ -25,6 +29,7 @@ public class Controler implements EventHandler {
         ScrollPaneCli scrollPaneCli = VBoxRoot.getSrollPaneCli();
         VariableLoc variableLoc = VBoxRoot.getVariableLoc();
         DicVille dicVille = VBoxRoot.getDicVille();
+        HBox hBox = VBoxRoot.getBox_boxMenu_stackPane();
 
         if (event.getSource() instanceof Button) {
             switch (((Button)
@@ -40,6 +45,15 @@ public class Controler implements EventHandler {
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
+
+
+            }
+        }
+        if (event.getSource() instanceof RadioButton){
+            switch (((RadioButton)
+                 event.getSource()).getAccessibleText()) {
+                case "ChangeAffichageChemin":
+                    System.out.println(((RadioButton) event.getSource()).getUserData());
             }
         }
     }

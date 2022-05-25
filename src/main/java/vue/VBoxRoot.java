@@ -87,6 +87,9 @@ public class VBoxRoot extends VBox {
     public static DicVille getDicVille(){
         return dicVille;
     }
+    public static HBox getBox_boxMenu_stackPane(){
+        return box_boxMenu_stackPane;
+    }
 
 
 
