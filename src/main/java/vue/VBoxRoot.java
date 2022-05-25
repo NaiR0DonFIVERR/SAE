@@ -8,6 +8,7 @@ import ComposantGraphique.Box.BoxAfficheChemin.VBoxTroisChemins;
 import ComposantGraphique.Scroll.ScrollPaneVille;
 import ComposantGraphique.Scroll.ScrollPaneCli;
 import Controler.Controler;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import modele.*;
 
@@ -31,16 +32,10 @@ public class VBoxRoot extends VBox {
     static VariableLoc variableLoc = new VariableLoc();
     static DicVille dicVille = new DicVille();
     static StackPaneAfficheChemin stackPaneAfficheChemin = new StackPaneAfficheChemin();
-
-    /*
-    static VBoxChemin vBoxChemin = new VBoxChemin();
-    static VBoxTroisChemins vBoxTroisChemins = new VBoxTroisChemins();
+    static MenuBarChoixUtilisateur boxMenu = new MenuBarChoixUtilisateur();
     static GridPaneChoixAfficheChemin gridPaneChoixAfficheChemin = new GridPaneChoixAfficheChemin();
+    static HBox box_boxMenu_stackPane = new HBox();
 
-
-
-     */
-    MenuBarChoixUtilisateur boxMenu = new MenuBarChoixUtilisateur();
 
     public VBoxRoot() throws IOException {
         File[] fichierScenario = new File("src/main/java/fichier_txt").listFiles();
@@ -57,6 +52,7 @@ public class VBoxRoot extends VBox {
         //vBoxChemin.setAllChemin(dicVille.getListChemin());
         //vBoxTroisChemins.setBoxAll();
         stackPaneAfficheChemin.setStackPane(dicVille.getListChemin());
+        box_boxMenu_stackPane.getChildren().addAll(gridPaneChoixAfficheChemin.getGridPane(),stackPaneAfficheChemin.getStackPane());
 
 
         scrollPaneVille.setScollVille();
@@ -67,7 +63,7 @@ public class VBoxRoot extends VBox {
 
         this.getChildren().add(boxMenu.getMenuBar());
         this.getChildren().add(boxRegroup.getBox());
-        this.getChildren().add(stackPaneAfficheChemin.getStackPane());
+        this.getChildren().add(box_boxMenu_stackPane);
         //this.getChildren().add(vBoxChemin.getBoxAll());
         //this.getChildren().add(vBoxTroisChemins.getBoxAll());
         //this.getChildren().add(gridPaneChoixAfficheChemin.getGridPane());
@@ -91,10 +87,7 @@ public class VBoxRoot extends VBox {
     public static DicVille getDicVille(){
         return dicVille;
     }
-    /*
-    public static VBoxTroisChemins getvBoxTroisChemins(){
-        return vBoxTroisChemins;
-    }*/
+
 
 
 }
