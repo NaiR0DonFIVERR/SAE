@@ -100,6 +100,21 @@ public class DicVille {
         }
         return listVoisinSortant;
     }
+    public List<List<String>> getPremierList(){
+        List<List<String>> list = new ArrayList<>();
+        Set set = listChemin.entrySet();
+        Iterator iterator = set.iterator();
+        int i =0;
+        while (iterator.hasNext() & i<3) {
+            Map.Entry mentry = (Map.Entry) iterator.next();
+            List list1 = new ArrayList<String>((Collection<? extends String>) mentry.getValue());
+            String distance = mentry.getKey() + "km";
+            list1.add(distance);
+            list.add(list1);
+            i++;
+        }
+        return list;
+    }
 
     public TreeMap<Integer, List<String>>getListChemin(){
         return listChemin;
