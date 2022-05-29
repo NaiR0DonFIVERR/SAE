@@ -81,10 +81,19 @@ public class VBoxChemin extends VBox {
 
     public void delete(){
 
-        hBoxList.get(0).getChildren().removeAll();
-        hBoxList.get(1).getChildren().removeAll();
-        hBoxList.get(2).getChildren().removeAll();
-
+        int TAILLE0 = hBoxList.get(0).getChildren().size();
+        int TAILLE1 = hBoxList.get(1).getChildren().size();
+        int TAILLE2 = hBoxList.get(2).getChildren().size();
+        for (int i=0;i<TAILLE0;i++){
+            hBoxList.get(0).getChildren().remove(0);
+        }
+        for (int i=0;i<TAILLE1;i++){
+            hBoxList.get(1).getChildren().remove(0);
+        }
+        for (int i=0;i<TAILLE2;i++){
+            hBoxList.get(2).getChildren().remove(0);
+        }
+        System.out.println("enfants : "+ hBoxList.get(0).getChildren());
     }
 
     public static List<HBox> gethBoxList(){return hBoxList;}
