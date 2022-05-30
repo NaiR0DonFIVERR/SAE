@@ -38,9 +38,10 @@ public class StackPaneAfficheChemin extends StackPane {
 
     public void setStackPane(TreeMap<Integer, List<String>> chemin) throws IOException {
 
+        System.out.println("Chemin maj :" + chemin);
         vBoxChemin.setAllChemin(chemin);
-        //vBoxPremierChemin.setBox();
-        //vBoxTroisChemins.setBoxAll();
+        vBoxPremierChemin.setBox();
+        vBoxTroisChemins.setBoxAll();
 
 
 
