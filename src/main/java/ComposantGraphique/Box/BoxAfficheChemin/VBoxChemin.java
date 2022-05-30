@@ -31,12 +31,12 @@ public class VBoxChemin extends VBox {
 
     public void setAllChemin(TreeMap<Integer, List<String>> chemin) throws IOException {
 
-        System.out.println(chemin);
+        //System.out.println(chemin);
         delete();
         Set set = chemin.entrySet();
         Iterator iterator = set.iterator();
         int NBCHEMIN = 0;
-        while (iterator.hasNext()) {
+        while (iterator.hasNext() & NBCHEMIN<15) {
             Map.Entry mentry = (Map.Entry) iterator.next();
             VBox boxCheminN = new VBox();
             ScrollPane scrollPaneChemin = new ScrollPane();
@@ -44,7 +44,9 @@ public class VBoxChemin extends VBox {
             scrollPaneChemin.setMinViewportHeight(150);
             scrollPaneChemin.setMaxHeight(500);
             scrollPaneChemin.setContent(boxCheminN);
-            boxCheminN.getChildren().add(new Label("Chemin : " + NBCHEMIN));
+            Label labeltitle = new Label("Chemin : " + NBCHEMIN);
+            labeltitle.setId("labelCheminEtape");
+            boxCheminN.getChildren().add(labeltitle);
             for (String ville : chemin.get(mentry.getKey())){
                 Label label = new Label(ville);
                 label.setAccessibleText(ville);
@@ -53,10 +55,10 @@ public class VBoxChemin extends VBox {
             Label labelDistance = new Label("Longeur : " + mentry.getKey() + "km");
             labelDistance.setId("labelDISTANCE");
             boxCheminN.getChildren().add(labelDistance);
-            if (NBCHEMIN>chemin.size()*2/3){
+            if (NBCHEMIN>9){
                 hBoxList.get(2).getChildren().add(scrollPaneChemin);
             }
-            else if (NBCHEMIN<chemin.size()/3){
+            else if (NBCHEMIN<5){
                 hBoxList.get(0).getChildren().add(scrollPaneChemin);
             }
             else {
@@ -93,7 +95,7 @@ public class VBoxChemin extends VBox {
         for (int i=0;i<TAILLE2;i++){
             hBoxList.get(2).getChildren().remove(0);
         }
-        System.out.println("enfants : "+ hBoxList.get(0).getChildren());
+        //System.out.println("enfants : "+ hBoxList.get(0).getChildren());
     }
 
     public static List<HBox> gethBoxList(){return hBoxList;}

@@ -49,7 +49,7 @@ public class Controler implements EventHandler {
                         dicVille.removelistChein();
                         dicVille.doChemin(dicVille.getDicVille(), new ArrayList<>());
                         System.out.println(dicVille);
-                        //stackPaneAfficheChemin.setStackPane(dicVille.getListChemin());
+                        stackPaneAfficheChemin.setStackPane(dicVille.getListChemin());
                         //System.out.println(dicVille.getListChemin() + " " + dicVille.getListChemin().size());
 
                     } catch (Exception e) {

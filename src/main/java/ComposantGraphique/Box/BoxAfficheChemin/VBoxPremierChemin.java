@@ -6,6 +6,8 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import vue.VBoxRoot;
 
+import java.util.Optional;
+
 import static ComposantGraphique.Box.BoxAfficheChemin.VBoxChemin.gethBoxList;
 
 public class VBoxPremierChemin {
@@ -23,10 +25,7 @@ public class VBoxPremierChemin {
     }
 
     public void setBox(){
-        boxAll.getChildren().remove(0);
-        scrollPane = new ScrollPane();
-        scrollPane.setContent(box);
-
+        delet();
         Label labelTitle = new Label("Chemin 0");
         labelTitle.setId("labelCheminEtape");
         box.getChildren().add(labelTitle);
@@ -35,8 +34,15 @@ public class VBoxPremierChemin {
         }
         box.getChildren().get(box.getChildren().size()-1).setId("labelDISTANCE");
         //box.getChildren().add(gethBoxList().get(0).getChildren().get(0));
+
         System.out.println("taille" + gethBoxList().get(0).getChildren().size());
-        boxAll.getChildren().add(scrollPane);
+    }
+    public void delet(){
+        VBox box = (VBox)scrollPane.getContent();
+        int TAILLE = box.getChildren().size();
+        for (int i=0;i<TAILLE;i++){
+            box.getChildren().remove(0);
+        }
     }
 
     public VBox getBox(){
