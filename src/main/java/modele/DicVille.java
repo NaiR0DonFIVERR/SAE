@@ -124,8 +124,7 @@ public class DicVille {
         return dicVille;
     }
 
-    public void delet(){
-        dicVille = new TreeMap<>();
+    public void removelistChein(){
         listChemin = new TreeMap<>();
     }
 

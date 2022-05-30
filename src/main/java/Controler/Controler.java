@@ -46,8 +46,11 @@ public class Controler implements EventHandler {
                         scrollPaneCli.setScoll((Scenario) ((Button) event.getSource()).getUserData());
                         scrollPaneVille.setScollVille();
                         dicVille.setDicVille(getListVilleVend(), getListVilleAch());
-                        doChemin(dicVille.getDicVille(), new ArrayList<>());
+                        dicVille.removelistChein();
+                        dicVille.doChemin(dicVille.getDicVille(), new ArrayList<>());
+                        System.out.println(dicVille);
                         //stackPaneAfficheChemin.setStackPane(dicVille.getListChemin());
+                        //System.out.println(dicVille.getListChemin() + " " + dicVille.getListChemin().size());
 
                     } catch (Exception e) {
                         e.printStackTrace();
