@@ -1,10 +1,7 @@
 package vue;
 
 import ComposantGraphique.Box.*;
-import ComposantGraphique.Box.BoxAfficheChemin.GridPaneChoixAfficheChemin;
-import ComposantGraphique.Box.BoxAfficheChemin.StackPaneAfficheChemin;
-import ComposantGraphique.Box.BoxAfficheChemin.VBoxChemin;
-import ComposantGraphique.Box.BoxAfficheChemin.VBoxTroisChemins;
+import ComposantGraphique.Box.BoxAfficheChemin.*;
 import ComposantGraphique.Scroll.ScrollPaneVille;
 import ComposantGraphique.Scroll.ScrollPaneCli;
 import Controler.Controler;
@@ -32,6 +29,7 @@ public class VBoxRoot extends VBox {
     static VariableLoc variableLoc = new VariableLoc();
     static DicVille dicVille = new DicVille();
     static StackPaneAfficheChemin stackPaneAfficheChemin = new StackPaneAfficheChemin();
+    static StackPaneChoixChemins stackPaneChoixChemins = new StackPaneChoixChemins();
     static MenuBarChoixUtilisateur boxMenu = new MenuBarChoixUtilisateur();
     static GridPaneChoixAfficheChemin gridPaneChoixAfficheChemin = new GridPaneChoixAfficheChemin();
     static HBox box_boxMenu_stackPane = new HBox();
@@ -52,7 +50,7 @@ public class VBoxRoot extends VBox {
         //vBoxChemin.setAllChemin(dicVille.getListChemin());
         //vBoxTroisChemins.setBoxAll();
         stackPaneAfficheChemin.setStackPane(dicVille.getListChemin());
-        box_boxMenu_stackPane.getChildren().addAll(gridPaneChoixAfficheChemin.getGridPane(),stackPaneAfficheChemin.getStackPane());
+
 
 
         scrollPaneVille.setScollVille();
@@ -60,6 +58,9 @@ public class VBoxRoot extends VBox {
         boxRegroup.add(boxScenario.getBox());
         boxRegroup.add(srollPaneCli.getBoxAll());
         boxRegroup.add(scrollPaneVille.getBoxAll());
+
+        stackPaneChoixChemins.setStackPane();
+        box_boxMenu_stackPane.getChildren().addAll(gridPaneChoixAfficheChemin.getGridPane(),stackPaneChoixChemins.getStackPane());
 
         this.getChildren().add(boxMenu.getMenuBar());
         this.getChildren().add(boxRegroup.getBox());
