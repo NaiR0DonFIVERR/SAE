@@ -53,8 +53,8 @@ public class VBoxRoot extends VBox {
         stackPaneAfficheChemin.setStackPane(dicVille.getListChemin());
 
 
-
-        scrollPaneVille.setScollVille();
+        System.out.println(boxScenario.getScenarioList().get(2));
+        scrollPaneVille.setScollVille(boxScenario.getScenarioList().get(2));
         srollPaneCli.setScoll(boxScenario.getScenarioList().get(0));
         boxRegroup.add(boxScenario.getBox());
         boxRegroup.add(srollPaneCli.getBoxAll());
@@ -63,7 +63,7 @@ public class VBoxRoot extends VBox {
         stackPaneChoixChemins.setStackPane();
         box_boxMenu_stackPane.getChildren().addAll(gridPaneChoixAfficheChemin.getGridPane(),stackPaneChoixChemins.getStackPane());
         StackPane stackPane = (StackPane) stackPaneChoixChemins.getStackPane().getChildren().get(2);
-        System.out.println(stackPane.getChildren().get(0).getAccessibleText());
+        System.out.println(stackPane.getChildren());
         System.out.println(stackPaneChoixChemins.getStackPane().getChildren());
 
         this.getChildren().add(boxMenu.getMenuBar());

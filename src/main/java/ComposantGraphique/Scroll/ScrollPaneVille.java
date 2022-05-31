@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import static modele.LectureEcriture.getDistance;
 import static modele.LectureEcriture.recupVille;
 import static modele.VariableLoc.getListVilleAch;
 import static modele.VariableLoc.getListVilleVend;
@@ -24,8 +25,8 @@ public class ScrollPaneVille extends ScrollPaneCli {
             listVilleAch.add(recupVille(scenario.getAcheteur().get(i)));
         }
         for (int i=0; i<listVilleVend.size();i++){
-
-            Label labelVille = new Label(listVilleVend.get(i) +" --> " + listVilleAch.get(i));
+            int DISTANCE = getDistance(listVilleVend.get(i), listVilleAch.get(i));
+            Label labelVille = new Label(listVilleVend.get(i) +" --> " + listVilleAch.get(i) + " " + DISTANCE+"km");
             vBox.getChildren().add(labelVille);
         }
     }
