@@ -6,6 +6,7 @@ import ComposantGraphique.Scroll.ScrollPaneVille;
 import ComposantGraphique.Scroll.ScrollPaneCli;
 import Controler.Controler;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import modele.*;
 
@@ -61,6 +62,9 @@ public class VBoxRoot extends VBox {
 
         stackPaneChoixChemins.setStackPane();
         box_boxMenu_stackPane.getChildren().addAll(gridPaneChoixAfficheChemin.getGridPane(),stackPaneChoixChemins.getStackPane());
+        StackPane stackPane = (StackPane) stackPaneChoixChemins.getStackPane().getChildren().get(2);
+        System.out.println(stackPane.getChildren().get(0).getAccessibleText());
+        System.out.println(stackPaneChoixChemins.getStackPane().getChildren());
 
         this.getChildren().add(boxMenu.getMenuBar());
         this.getChildren().add(boxRegroup.getBox());
@@ -94,6 +98,7 @@ public class VBoxRoot extends VBox {
     public static StackPaneAfficheChemin getStackPaneAfficheChemin(){
         return stackPaneAfficheChemin;
     }
+    public static StackPaneChoixChemins getStackPaneChoixChemins(){ return stackPaneChoixChemins; }
 
 
 
