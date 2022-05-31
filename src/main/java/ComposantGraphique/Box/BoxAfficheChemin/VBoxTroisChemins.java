@@ -10,27 +10,20 @@ import java.util.*;
 public class VBoxTroisChemins extends VBox{
 
     VBox boxAll;
-    VBox boxOne ;
-    VBox boxTwo ;
-    VBox boxTree ;
-
-    ScrollPane scrollPaneOne;
-    ScrollPane scrollPaneTwo;
-    ScrollPane scrollPaneTree;
+    List<VBox> list;
 
     public VBoxTroisChemins(){
 
         boxAll = new VBox();
-        boxOne = new VBox();
-        boxTwo = new VBox();
-        boxTree = new VBox();
-        scrollPaneOne = new ScrollPane();
-        scrollPaneTwo = new ScrollPane();
-        scrollPaneTree = new ScrollPane();
-        scrollPaneOne.setContent(boxOne);
-        scrollPaneTwo.setContent(boxTwo);
-        scrollPaneTree.setContent(boxTree);
-        boxAll.getChildren().addAll(scrollPaneOne, scrollPaneTwo, scrollPaneTree);
+        list = new ArrayList<>();
+
+        for (int i=0;i<3;i++){
+            VBox box = new VBox();
+            ScrollPane scrollPane = new ScrollPane();
+            list.add(box);
+            scrollPane.setContent(box);
+            boxAll.getChildren().add(scrollPane);
+        }
     }
 
     public void setBoxAll(TreeMap<Integer, List<String>> chemin){
@@ -42,51 +35,25 @@ public class VBoxTroisChemins extends VBox{
             Map.Entry mentry = (Map.Entry) iterator.next();
             Label labeltitle = new Label("Chemin : " + i);
             labeltitle.setId("labelCheminEtape");
-            if (i==0){
-                boxOne.getChildren().add(labeltitle);
-            }
-            else if (i==1){
-                boxTwo.getChildren().add(labeltitle);
-            }
-            else {
-                boxTree.getChildren().add(labeltitle);
-            }
+            list.get(i).getChildren().add(labeltitle);
             for (String ville : chemin.get(mentry.getKey())) {
-                if (i == 0) {
-                    boxOne.getChildren().add(new Label(ville));
-                } else if (i == 1) {
-                    boxTwo.getChildren().add(new Label(ville));
-                } else {
-                    boxTree.getChildren().add(new Label(ville));
-                }
+                list.get(i).getChildren().add(new Label(ville));
             }
+            Label lableDistance = new Label(mentry.getKey()+"km");
+            lableDistance.setId("labelDISTANCE");
+            list.get(i).getChildren().add(lableDistance);
             i++;
-        }/*
-        boxOne.getChildren().get(boxOne.getChildren().size()-1).setId("labelDISTANCE");
-        if (boxTwo.getChildren().size()>0) {
-            boxTwo.getChildren().get(boxTwo.getChildren().size() - 1).setId("labelDISTANCE");
         }
-        if (boxTree.getChildren().size()>0) {
-            boxTree.getChildren().get(boxTree.getChildren().size() - 1).setId("labelDISTANCE");
-        }*/
     }
 
     public void delet(){
-        int TAILLE1 = boxOne.getChildren().size();
-        int TAILLE2 = boxTwo.getChildren().size();
-        int TAILLE3 = boxTree.getChildren().size();
-        for (int i=0;i<TAILLE1;i++){
-            boxOne.getChildren().remove(0);
-        }
-        for (int i=0;i<TAILLE2;i++){
-            boxTwo.getChildren().remove(0);
-        }
-        for (int i=0;i<TAILLE3;i++){
-            boxTree.getChildren().remove(0);
+        for (int i=0;i<list.size();i++){
+            final int TAILLE = list.get(i).getChildren().size();
+            for (int y=0;y<TAILLE;y++){
+                list.get(i).getChildren().remove(y);
+            }
         }
     }
-
-
 
     public VBox getBoxAll(){
         return boxAll;
