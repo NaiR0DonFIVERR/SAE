@@ -40,8 +40,8 @@ public class StackPaneAfficheChemin extends StackPane {
 
         System.out.println("Chemin maj :" + chemin);
         vBoxChemin.setAllChemin(chemin);
-        vBoxPremierChemin.setBox();
-        vBoxTroisChemins.setBoxAll();
+        vBoxPremierChemin.setBox(chemin);
+        vBoxTroisChemins.setBoxAll(chemin);
 
 
 

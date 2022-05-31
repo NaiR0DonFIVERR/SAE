@@ -5,6 +5,8 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.VBox;
 import vue.VBoxRoot;
 
+import java.util.*;
+
 public class VBoxTroisChemins extends VBox{
 
     VBox boxAll;
@@ -31,12 +33,13 @@ public class VBoxTroisChemins extends VBox{
         boxAll.getChildren().addAll(scrollPaneOne, scrollPaneTwo, scrollPaneTree);
     }
 
-    public void setBoxAll(){
+    public void setBoxAll(TreeMap<Integer, List<String>> chemin){
         delet();
-        for (int i=0;i<VBoxRoot.getDicVille().getPremierList().size();i++){
-            if (i>=3){
-                break;
-            }
+        int i =0;
+        Set set = chemin.entrySet();
+        Iterator iterator = set.iterator();
+        while (iterator.hasNext() & i<3){
+            Map.Entry mentry = (Map.Entry) iterator.next();
             Label labeltitle = new Label("Chemin : " + i);
             labeltitle.setId("labelCheminEtape");
             if (i==0){
@@ -48,25 +51,24 @@ public class VBoxTroisChemins extends VBox{
             else {
                 boxTree.getChildren().add(labeltitle);
             }
-            for (String ville : VBoxRoot.getDicVille().getPremierList().get(i)){
-                if (i==0){
+            for (String ville : chemin.get(mentry.getKey())) {
+                if (i == 0) {
                     boxOne.getChildren().add(new Label(ville));
-                }
-                else if (i==1){
+                } else if (i == 1) {
                     boxTwo.getChildren().add(new Label(ville));
-                }
-                else {
+                } else {
                     boxTree.getChildren().add(new Label(ville));
                 }
             }
-        }
+            i++;
+        }/*
         boxOne.getChildren().get(boxOne.getChildren().size()-1).setId("labelDISTANCE");
         if (boxTwo.getChildren().size()>0) {
             boxTwo.getChildren().get(boxTwo.getChildren().size() - 1).setId("labelDISTANCE");
         }
         if (boxTree.getChildren().size()>0) {
             boxTree.getChildren().get(boxTree.getChildren().size() - 1).setId("labelDISTANCE");
-        }
+        }*/
     }
 
     public void delet(){
