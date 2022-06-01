@@ -14,6 +14,8 @@ import javafx.scene.layout.StackPane;
 import modele.Scenario;
 import vue.VBoxRoot;
 
+import java.io.IOException;
+
 public class Controler implements EventHandler {
 
     @Override
@@ -31,13 +33,18 @@ public class Controler implements EventHandler {
         int TAILLE = stackPaneChoixChemins.getStackPane().getChildren().size()-1;
 
         if (event.getSource() instanceof Button) {
-            switch (((Button)
-                    event.getSource()).getAccessibleText()) {
-                case "ChangeScenario":
-                    try {
+            if (((Button) event.getSource()).getAccessibleText() == "ChangeScenario") {
                         //variableLoc.setVariable((Scenario) ((Button) event.getSource()).getUserData());
-                        scrollPaneCli.setScoll((Scenario) ((Button) event.getSource()).getUserData());
-                        scrollPaneVille.setScollVille((Scenario) ((Button) event.getSource()).getUserData());
+                try {
+                    scrollPaneCli.setScoll((Scenario) ((Button) event.getSource()).getUserData());
+                    scrollPaneVille.setScollVille((Scenario) ((Button) event.getSource()).getUserData());
+                    while (((Button) event.getSource()).getUserData() != stackPaneChoixChemins.getStackPane().getChildren().get(TAILLE).getUserData()){
+                        stackPaneChoixChemins.getStackPane().getChildren().get(TAILLE).toBack();
+                    }
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
                         /*
                         dicVille.setDicVille(getListVilleVend(), getListVilleAch());
                         dicVille.removelistChein();
@@ -45,19 +52,12 @@ public class Controler implements EventHandler {
                         System.out.println(dicVille);
                         stackPaneAfficheChemin.setStackPane(dicVille.getListChemin());
                          */
-                        while (((Button) event.getSource()).getUserData() != stackPaneChoixChemins.getStackPane().getChildren().get(TAILLE).getUserData()){
-                            stackPaneChoixChemins.getStackPane().getChildren().get(TAILLE).toBack();
-                        }
 
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                case "AjoutEtape":
 
-                    System.out.println("ajoutEtape");
+            }
+            else if (((Button) event.getSource()).getAccessibleText() == "AjoutScenario") {
 
-                case "AjoutScenario":
-                    System.out.println("ajoutScenario");
+                System.out.println("ajoutScenario");
 
             }
         }
