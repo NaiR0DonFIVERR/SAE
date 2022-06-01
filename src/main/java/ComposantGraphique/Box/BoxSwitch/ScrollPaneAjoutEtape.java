@@ -37,4 +37,16 @@ public class ScrollPaneAjoutEtape extends ScrollPane {
         }
     }
 
+    public ScrollPane getScrollPane(){
+        return scrollPane;
+    }
+
+    public List<String> getListVend(){
+        return listVend;
+    }
+
+    public List<String> getListAch(){
+        return listAch;
+    }
+
 }
