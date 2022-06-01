@@ -16,6 +16,11 @@ public class Scenario {
         acheteur = new ArrayList<>();
     }
 
+    public Scenario(List<String> listVend, List<String> listAch){
+        vendeur = new ArrayList<>(new ArrayList<>(listVend));
+        acheteur = new ArrayList<>(new ArrayList<>(listAch));
+    }
+
     public void ajoutVendeurAcheteur(String parVendeur, String parAcheteur){
         vendeur.add(parVendeur);
         acheteur.add(parAcheteur);
