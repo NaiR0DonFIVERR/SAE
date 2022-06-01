@@ -1,4 +1,4 @@
-package ComposantGraphique.Box;
+package ComposantGraphique.Box.BoxSwitch;
 
 import ComposantGraphique.Box.BoxAfficheChemin.GridPaneChoixAfficheChemin;
 import ComposantGraphique.Box.BoxAfficheChemin.StackPaneChoixChemins;
@@ -25,17 +25,28 @@ public class StackPaneChoixUtilisateur extends StackPane {
 
         GridPaneChoixAfficheChemin gridPaneChoixAfficheChemin = new GridPaneChoixAfficheChemin();
         StackPaneChoixChemins stackPaneChoixChemins = new StackPaneChoixChemins();
-        components = new Node[1];
+        GridPaneAjoutScenario gridPaneAjoutScenario = new GridPaneAjoutScenario();
+        components = new Node[2];
         list = new ArrayList<>();
+
+        stackPaneChoixChemins.setStackPane();
+        boxChemin_GridPaneChemin = new HBox(gridPaneChoixAfficheChemin.getGridPane(),stackPaneChoixChemins.getStackPane());
+        gridPaneAjoutScenario.setGridPane();
+
 
         list.add(gridPaneChoixAfficheChemin);
         list.add(stackPaneChoixChemins);
-        stackPaneChoixChemins.setStackPane();
-        boxChemin_GridPaneChemin = new HBox(gridPaneChoixAfficheChemin.getGridPane(),stackPaneChoixChemins.getStackPane());
+        list.add(gridPaneAjoutScenario);
+
         components[0] = boxChemin_GridPaneChemin;
+        components[1] = gridPaneAjoutScenario.getGridPane();
+
+        for (int i=0;i<components.length;i++){
+            components[i].setUserData(i);
+        }
 
         stackPane = new StackPane(components);
-        System.out.println("test");
+
     }
 
     public StackPane getStackPane(){

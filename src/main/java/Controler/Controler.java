@@ -1,31 +1,18 @@
 package Controler;
 
-import ComposantGraphique.Box.BoxAfficheChemin.GridPaneChoixAfficheChemin;
-import ComposantGraphique.Box.BoxAfficheChemin.StackPaneAfficheChemin;
 import ComposantGraphique.Box.BoxAfficheChemin.StackPaneChoixChemins;
-import ComposantGraphique.Box.StackPaneChoixUtilisateur;
+import ComposantGraphique.Box.BoxSwitch.StackPaneChoixUtilisateur;
 import ComposantGraphique.Scroll.ScrollPaneCli;
 import ComposantGraphique.Scroll.ScrollPaneVille;
 
 import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
+import javafx.scene.control.MenuItem;
 import javafx.scene.control.RadioButton;
-import javafx.scene.control.ToggleButton;
-import javafx.scene.control.ToggleGroup;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
-import modele.DicVille;
 import modele.Scenario;
-import modele.VariableLoc;
 import vue.VBoxRoot;
-
-import java.util.ArrayList;
-import java.util.Random;
-
-import static Calcule.Calcul.doChemin;
-import static modele.VariableLoc.getListVilleAch;
-import static modele.VariableLoc.getListVilleVend;
 
 public class Controler implements EventHandler {
 
@@ -82,6 +69,14 @@ public class Controler implements EventHandler {
                         stackPane.getChildren().get(2).toBack();
                     }*/
                     System.out.println(((RadioButton) event.getSource()).getUserData());
+            }
+        }
+        if (event.getSource() instanceof MenuItem){
+            int TAILLECHOIXUTILISATEUR = stackPaneChoixUtilisateur.getStackPane().getChildren().size()-1;
+            System.out.println(((MenuItem) event.getSource()).getUserData());
+            System.out.println(stackPaneChoixUtilisateur.getStackPane().getChildren().get(stackPaneChoixUtilisateur.getStackPane().getChildren().size()-1).getUserData());
+            while (((MenuItem) event.getSource()).getUserData() != stackPaneChoixUtilisateur.getStackPane().getChildren().get(TAILLECHOIXUTILISATEUR).getUserData()){
+                stackPaneChoixUtilisateur.getStackPane().getChildren().get(TAILLECHOIXUTILISATEUR).toBack();
             }
         }
     }
