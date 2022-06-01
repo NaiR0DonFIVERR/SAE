@@ -3,6 +3,7 @@ package Controler;
 import ComposantGraphique.Box.BoxAfficheChemin.GridPaneChoixAfficheChemin;
 import ComposantGraphique.Box.BoxAfficheChemin.StackPaneAfficheChemin;
 import ComposantGraphique.Box.BoxAfficheChemin.StackPaneChoixChemins;
+import ComposantGraphique.Box.StackPaneChoixUtilisateur;
 import ComposantGraphique.Scroll.ScrollPaneCli;
 import ComposantGraphique.Scroll.ScrollPaneVille;
 
@@ -32,12 +33,13 @@ public class Controler implements EventHandler {
     public void handle(Event event) {
         ScrollPaneVille scrollPaneVille = VBoxRoot.getScrollPaneVille();
         ScrollPaneCli scrollPaneCli = VBoxRoot.getSrollPaneCli();
-        VariableLoc variableLoc = VBoxRoot.getVariableLoc();
+        /*VariableLoc variableLoc = VBoxRoot.getVariableLoc();
         DicVille dicVille = VBoxRoot.getDicVille();
         HBox hBox = VBoxRoot.getBox_boxMenu_stackPane();
         StackPaneAfficheChemin stackPaneAfficheChemin = VBoxRoot.getStackPaneAfficheChemin();
-        StackPane stackPane = (StackPane) hBox.getChildren().get(1);
-        StackPaneChoixChemins stackPaneChoixChemins = VBoxRoot.getStackPaneChoixChemins();
+        StackPane stackPane = (StackPane) hBox.getChildren().get(1);*/
+        StackPaneChoixUtilisateur stackPaneChoixUtilisateur = VBoxRoot.getStackPaneChoixUtilisateur();
+        StackPaneChoixChemins stackPaneChoixChemins = (StackPaneChoixChemins) stackPaneChoixUtilisateur.getList().get(1);
         StackPane stackPane1 = (StackPane) stackPaneChoixChemins.getStackPane().getChildren().get(2);
         int TAILLE = stackPaneChoixChemins.getStackPane().getChildren().size()-1;
 
