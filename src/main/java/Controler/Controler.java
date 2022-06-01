@@ -52,7 +52,12 @@ public class Controler implements EventHandler {
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
+                case "AjoutEtape":
 
+                    System.out.println("ajoutEtape");
+
+                case "AjoutScenario":
+                    System.out.println("ajoutScenario");
 
             }
         }
@@ -73,8 +78,6 @@ public class Controler implements EventHandler {
         }
         if (event.getSource() instanceof MenuItem){
             int TAILLECHOIXUTILISATEUR = stackPaneChoixUtilisateur.getStackPane().getChildren().size()-1;
-            System.out.println(((MenuItem) event.getSource()).getUserData());
-            System.out.println(stackPaneChoixUtilisateur.getStackPane().getChildren().get(stackPaneChoixUtilisateur.getStackPane().getChildren().size()-1).getUserData());
             while (((MenuItem) event.getSource()).getUserData() != stackPaneChoixUtilisateur.getStackPane().getChildren().get(TAILLECHOIXUTILISATEUR).getUserData()){
                 stackPaneChoixUtilisateur.getStackPane().getChildren().get(TAILLECHOIXUTILISATEUR).toBack();
             }
