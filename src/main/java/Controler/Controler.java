@@ -56,7 +56,7 @@ public class Controler implements EventHandler {
 
             }
             else if (((Button) event.getSource()).getAccessibleText() == "AjoutScenario") {
-                System.out.println(stackPaneChoixUtilisateur.gridPaneAjoutScenario());
+                stackPaneChoixUtilisateur.getgridPaneAjoutScenario().ajoutScenario();
 
             }
         }
