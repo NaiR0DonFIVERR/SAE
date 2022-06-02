@@ -28,7 +28,7 @@ public class Controler implements EventHandler {
         StackPaneAfficheChemin stackPaneAfficheChemin = VBoxRoot.getStackPaneAfficheChemin();
         StackPane stackPane = (StackPane) hBox.getChildren().get(1);*/
         StackPaneChoixUtilisateur stackPaneChoixUtilisateur = VBoxRoot.getStackPaneChoixUtilisateur();
-        StackPaneChoixChemins stackPaneChoixChemins = (StackPaneChoixChemins) stackPaneChoixUtilisateur.getList().get(1);
+        StackPaneChoixChemins stackPaneChoixChemins = stackPaneChoixUtilisateur.getStackPaneChoixChemin();
         StackPane stackPane1 = (StackPane) stackPaneChoixChemins.getStackPane().getChildren().get(2);
         int TAILLE = stackPaneChoixChemins.getStackPane().getChildren().size()-1;
 
@@ -56,8 +56,7 @@ public class Controler implements EventHandler {
 
             }
             else if (((Button) event.getSource()).getAccessibleText() == "AjoutScenario") {
-
-                System.out.println("ajoutScenario");
+                System.out.println(stackPaneChoixUtilisateur.gridPaneAjoutScenario());
 
             }
         }

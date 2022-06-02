@@ -46,7 +46,6 @@ public class StackPaneChoixUtilisateur extends StackPane {
         }
 
         stackPane = new StackPane(components);
-
     }
 
     public StackPane getStackPane(){
@@ -56,4 +55,8 @@ public class StackPaneChoixUtilisateur extends StackPane {
     public List<Node> getList(){
         return list;
     }
+
+    public StackPaneChoixChemins getStackPaneChoixChemin(){ return (StackPaneChoixChemins) list.get(1);}
+
+    public GridPaneAjoutScenario gridPaneAjoutScenario(){ return (GridPaneAjoutScenario) list.get(2);}
 }
