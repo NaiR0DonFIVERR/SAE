@@ -21,7 +21,7 @@ public class StackPaneChoixChemins extends StackPane {
     }
     public void setStackPane() throws IOException {
         components = new Node[VBoxRoot.getBoxScenario().getScenarioList().size()];
-        System.out.println(VBoxRoot.getBoxScenario().getScenarioList().size());
+        //System.out.println(VBoxRoot.getBoxScenario().getScenarioList().size());
         for (int i=0;i< VBoxRoot.getBoxScenario().getScenarioList().size();i++){
 
             Scenario scenario = VBoxRoot.getBoxScenario().getScenarioList().get(i);
@@ -38,15 +38,40 @@ public class StackPaneChoixChemins extends StackPane {
             dicVille.doChemin(dicVille.getDicVille(),new ArrayList<>());
 
             StackPaneAfficheChemin stackPaneAfficheChemin = new StackPaneAfficheChemin();
-            System.out.println(dicVille.getListChemin());
+            //System.out.println(dicVille.getListChemin());
             stackPaneAfficheChemin.setStackPane(dicVille.getListChemin());
+            stackPaneAfficheChemin.getStackPane().setUserData(scenario);
 
             components [i] = stackPaneAfficheChemin.getStackPane();
 
         }
 
         stackPane = new StackPane(components);
-        System.out.println("test");
+    }
+
+    public void addStack(Scenario scenario) throws IOException {
+        List<String> listVend = new ArrayList<>();
+        List<String> listAch = new ArrayList<>();
+        for (int i=0;i<scenario.getAcheteur().size();i++){
+            listVend.add(recupVille(scenario.getAcheteur().get(i)));
+            listAch.add(recupVille(scenario.getVendeur().get(i)));
+        }
+        DicVille dicVille = new DicVille();
+        dicVille.setDicVille(listVend,listAch);
+        dicVille.doChemin(dicVille.getDicVille(),new ArrayList<>());
+        StackPaneAfficheChemin stackPaneAfficheChemin = new StackPaneAfficheChemin();
+        stackPaneAfficheChemin.setStackPane(dicVille.getListChemin());
+        stackPaneAfficheChemin.getStackPane().setUserData(scenario);
+        /*
+        Node [] compo = new Node[components.length+1];
+        for (int i=0;i<components.length;i++){
+            compo[i] = components[i];
+        }
+        compo[compo.length-1] = stackPaneAfficheChemin.getStackPane();
+        components = compo;
+        */
+        stackPane.getChildren().add(stackPaneAfficheChemin.getStackPane());
+        System.out.println(stackPane.getChildren());
     }
 
     public StackPane getStackPane(){

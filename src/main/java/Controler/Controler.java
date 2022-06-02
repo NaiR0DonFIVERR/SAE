@@ -71,11 +71,12 @@ public class Controler implements EventHandler {
                     stackPaneChoixUtilisateur.getgridPaneAjoutScenario().ajoutScenario();
                     scrollPaneCli.setScoll(scenario);
                     scrollPaneVille.setScollVille(scenario);
-                    DicVille dicVille = new DicVille();
+                    /*DicVille dicVille = new DicVille();
                     dicVille.setDicVille(scenario.getVendeur(),scenario.getAcheteur());
                     System.out.println(dicVille.getDicVille());
                     dicVille.doChemin(dicVille.getDicVille(),new ArrayList<>());
-                    System.out.println(dicVille.getListChemin());
+                    System.out.println(dicVille.getListChemin());*/
+                    stackPaneChoixChemins.addStack(scenario);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }

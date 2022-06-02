@@ -33,18 +33,14 @@ public class StackPaneAfficheChemin extends StackPane {
         stackPane = new StackPane(components);
 
         stackPane.getChildren().get(0).toFront();
-
     }
 
     public void setStackPane(TreeMap<Integer, List<String>> chemin) throws IOException {
 
-        System.out.println("Chemin maj :" + chemin);
+        //System.out.println("Chemin maj :" + chemin);
         vBoxChemin.setAllChemin(chemin);
         vBoxPremierChemin.setBox(chemin);
         vBoxTroisChemins.setBoxAll(chemin);
-
-
-
     }
 
     public StackPane getStackPane(){
