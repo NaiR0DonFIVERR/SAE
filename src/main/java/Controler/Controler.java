@@ -1,6 +1,7 @@
 package Controler;
 
 import ComposantGraphique.Box.BoxAfficheChemin.StackPaneChoixChemins;
+import ComposantGraphique.Box.BoxScenario;
 import ComposantGraphique.Box.BoxSwitch.StackPaneChoixUtilisateur;
 import ComposantGraphique.Scroll.ScrollPaneCli;
 import ComposantGraphique.Scroll.ScrollPaneVille;
@@ -15,6 +16,8 @@ import modele.Scenario;
 import vue.VBoxRoot;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Controler implements EventHandler {
 
@@ -27,6 +30,7 @@ public class Controler implements EventHandler {
         HBox hBox = VBoxRoot.getBox_boxMenu_stackPane();
         StackPaneAfficheChemin stackPaneAfficheChemin = VBoxRoot.getStackPaneAfficheChemin();
         StackPane stackPane = (StackPane) hBox.getChildren().get(1);*/
+        BoxScenario boxScenario = VBoxRoot.getBoxScenario();
         StackPaneChoixUtilisateur stackPaneChoixUtilisateur = VBoxRoot.getStackPaneChoixUtilisateur();
         StackPaneChoixChemins stackPaneChoixChemins = stackPaneChoixUtilisateur.getStackPaneChoixChemin();
         StackPane stackPane1 = (StackPane) stackPaneChoixChemins.getStackPane().getChildren().get(2);
@@ -56,6 +60,11 @@ public class Controler implements EventHandler {
 
             }
             else if (((Button) event.getSource()).getAccessibleText() == "AjoutScenario") {
+                List<String> listVend = new ArrayList<>(stackPaneChoixUtilisateur.getgridPaneAjoutScenario().getScrollPaneAjoutEtape().getListVend());
+                List<String> listAch = new ArrayList<>(stackPaneChoixUtilisateur.getgridPaneAjoutScenario().getScrollPaneAjoutEtape().getListAch());
+                Scenario scenario = new Scenario(listVend,listAch);
+                System.out.println(scenario);
+                boxScenario.addScenario(scenario);
                 stackPaneChoixUtilisateur.getgridPaneAjoutScenario().ajoutScenario();
 
             }

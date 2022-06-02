@@ -2,11 +2,11 @@ package vue;
 
 import ComposantGraphique.Box.*;
 import ComposantGraphique.Box.BoxAfficheChemin.*;
+import ComposantGraphique.Box.BoxSwitch.StackPaneChoixUtilisateur;
 import ComposantGraphique.Scroll.ScrollPaneVille;
 import ComposantGraphique.Scroll.ScrollPaneCli;
 import Controler.Controler;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import modele.*;
 
@@ -34,6 +34,7 @@ public class VBoxRoot extends VBox {
     static MenuBarChoixUtilisateur boxMenu = new MenuBarChoixUtilisateur();
     static GridPaneChoixAfficheChemin gridPaneChoixAfficheChemin = new GridPaneChoixAfficheChemin();
     static HBox box_boxMenu_stackPane = new HBox();
+    static StackPaneChoixUtilisateur stackPaneChoixUtilisateur = new StackPaneChoixUtilisateur();
 
 
     public VBoxRoot() throws IOException {
@@ -51,6 +52,7 @@ public class VBoxRoot extends VBox {
         //vBoxChemin.setAllChemin(dicVille.getListChemin());
         //vBoxTroisChemins.setBoxAll();
         stackPaneAfficheChemin.setStackPane(dicVille.getListChemin());
+        stackPaneChoixUtilisateur.setStackPane();
 
 
         System.out.println(boxScenario.getScenarioList().get(2));
@@ -60,15 +62,16 @@ public class VBoxRoot extends VBox {
         boxRegroup.add(srollPaneCli.getBoxAll());
         boxRegroup.add(scrollPaneVille.getBoxAll());
 
-        stackPaneChoixChemins.setStackPane();
-        box_boxMenu_stackPane.getChildren().addAll(gridPaneChoixAfficheChemin.getGridPane(),stackPaneChoixChemins.getStackPane());
-        StackPane stackPane = (StackPane) stackPaneChoixChemins.getStackPane().getChildren().get(2);
+        //stackPaneChoixChemins.setStackPane();
+        //box_boxMenu_stackPane.getChildren().addAll(gridPaneChoixAfficheChemin.getGridPane(),stackPaneChoixChemins.getStackPane());
+        /*StackPane stackPane = (StackPane) stackPaneChoixChemins.getStackPane().getChildren().get(2);
         System.out.println(stackPane.getChildren());
         System.out.println(stackPaneChoixChemins.getStackPane().getChildren());
-
+*/
         this.getChildren().add(boxMenu.getMenuBar());
         this.getChildren().add(boxRegroup.getBox());
-        this.getChildren().add(box_boxMenu_stackPane);
+        this.getChildren().add(stackPaneChoixUtilisateur.getStackPane());
+        //this.getChildren().add(box_boxMenu_stackPane);
         //this.getChildren().add(vBoxChemin.getBoxAll());
         //this.getChildren().add(vBoxTroisChemins.getBoxAll());
         //this.getChildren().add(gridPaneChoixAfficheChemin.getGridPane());
@@ -99,6 +102,7 @@ public class VBoxRoot extends VBox {
         return stackPaneAfficheChemin;
     }
     public static StackPaneChoixChemins getStackPaneChoixChemins(){ return stackPaneChoixChemins; }
+    public static StackPaneChoixUtilisateur getStackPaneChoixUtilisateur(){ return stackPaneChoixUtilisateur;}
 
 
 
