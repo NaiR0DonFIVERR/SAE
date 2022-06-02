@@ -30,6 +30,7 @@ public class GridPaneAjoutScenario extends GridPane {
         buttonAjoutEtape = new Button("Ajout etape");
         buttonAjoutScenario = new Button("Ajout scenario");
         buttonAjoutScenario.setAccessibleText("AjoutScenario");
+        buttonAjoutEtape.setId("boutonAjoutEtape");
         buttonAjoutEtape.setOnAction(evt ->{ajoutEtape();});
         buttonAjoutScenario.setOnAction(VBoxRoot.getControler());
     }
@@ -50,6 +51,7 @@ public class GridPaneAjoutScenario extends GridPane {
 
         gridPane.add(labelTitle, 0,0,5,1);
         GridPane.setHalignment(labelTitle, HPos.CENTER);
+        gridPane.setId("backGroudWhite");
 
         //Ajout des acheteurs et vendeurs
         gridPane.add(new Label("Vendeur"), 0,1,1,1);

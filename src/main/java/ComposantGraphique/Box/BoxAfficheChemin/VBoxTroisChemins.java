@@ -24,6 +24,7 @@ public class VBoxTroisChemins extends VBox{
             scrollPane.setContent(box);
             boxAll.getChildren().add(scrollPane);
         }
+        boxAll.setId("backGroudWhite");
     }
 
     public void setBoxAll(TreeMap<Integer, List<String>> chemin){

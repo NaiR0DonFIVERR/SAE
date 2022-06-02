@@ -22,6 +22,7 @@ public class GridPaneChoixAfficheChemin extends GridPane {
         gridPane.setPadding(new Insets(40));
         gridPane.setHgap(20);
         gridPane.setVgap(20);
+        gridPane.setId("backGroudWhite");
 
         gridPane.add(new Label("CHOIS"), 1, 0, 2,1);
 

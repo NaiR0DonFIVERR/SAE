@@ -27,6 +27,7 @@ public class VBoxChemin extends VBox {
             boxAll.getChildren().add(regroupBoxChemin);
             hBoxList.add(regroupBoxChemin);
         }
+        boxAll.setId("backGroudWhite");
     }
 
     public void setAllChemin(TreeMap<Integer, List<String>> chemin) throws IOException {

@@ -1,6 +1,9 @@
 .scroll-pane {
     -fx-background: #ddf5ee;
     -fx-border-color: #5F9EA0;
+    -fx-setMinViewportWidth: 100px;
+    -fx-setMinViewportHeight: 150px;
+    -fx-setMaxHeight: 500px;
 }
 #BoxScenario {
     -fx-border-color: #5F9EA0;
@@ -13,4 +16,10 @@
 }
 #labelDISTANCE{
     -fx-text-fill : blue;
+}
+#boutonAjoutEtape{
+    -fx-background-color: red;
+}
+#backGroudWhite {
+    -fx-background-color: white;
 }

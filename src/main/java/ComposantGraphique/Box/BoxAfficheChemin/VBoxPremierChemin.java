@@ -22,6 +22,7 @@ public class VBoxPremierChemin {
         scrollPane = new ScrollPane();
         scrollPane.setContent(box);
         boxAll.getChildren().add(scrollPane);
+        boxAll.setId("backGroudWhite");
     }
 
     public void setBox(TreeMap<Integer, List<String>> chemin){
@@ -40,8 +41,7 @@ public class VBoxPremierChemin {
         labelDistance.setId("labelDISTANCE");
         box.getChildren().add(labelDistance);
         //box.getChildren().add(gethBoxList().get(0).getChildren().get(0));
-
-        System.out.println("taille" + gethBoxList().get(0).getChildren().size());
+        //System.out.println("taille" + gethBoxList().get(0).getChildren().size());
     }
     public void delet(){
         VBox box = (VBox)scrollPane.getContent();
