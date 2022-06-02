@@ -65,6 +65,8 @@ public class GridPaneAjoutScenario extends GridPane {
         return gridPane;
     }
 
+    public ScrollPaneAjoutEtape getScrollPaneAjoutEtape(){ return scrollPaneAjoutEtape; }
+
     public void ajoutEtape(){
         scrollPaneAjoutEtape.ajoutEtape((String) comboBoxVendeur.getValue(), (String) comboBoxAcheteur.getValue());
     }
