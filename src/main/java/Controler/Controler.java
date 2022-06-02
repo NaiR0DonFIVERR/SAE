@@ -12,6 +12,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.RadioButton;
 import javafx.scene.layout.StackPane;
+import modele.DicVille;
 import modele.Scenario;
 import vue.VBoxRoot;
 
@@ -60,12 +61,24 @@ public class Controler implements EventHandler {
 
             }
             else if (((Button) event.getSource()).getAccessibleText() == "AjoutScenario") {
-                List<String> listVend = new ArrayList<>(stackPaneChoixUtilisateur.getgridPaneAjoutScenario().getScrollPaneAjoutEtape().getListVend());
-                List<String> listAch = new ArrayList<>(stackPaneChoixUtilisateur.getgridPaneAjoutScenario().getScrollPaneAjoutEtape().getListAch());
-                Scenario scenario = new Scenario(listVend,listAch);
-                System.out.println(scenario);
-                boxScenario.addScenario(scenario);
-                stackPaneChoixUtilisateur.getgridPaneAjoutScenario().ajoutScenario();
+
+                try {
+                    List<String> listVend = new ArrayList<>(stackPaneChoixUtilisateur.getgridPaneAjoutScenario().getScrollPaneAjoutEtape().getListVend());
+                    List<String> listAch = new ArrayList<>(stackPaneChoixUtilisateur.getgridPaneAjoutScenario().getScrollPaneAjoutEtape().getListAch());
+                    Scenario scenario = new Scenario(listVend,listAch);
+                    System.out.println(scenario);
+                    boxScenario.addScenario(scenario);
+                    stackPaneChoixUtilisateur.getgridPaneAjoutScenario().ajoutScenario();
+                    scrollPaneCli.setScoll(scenario);
+                    scrollPaneVille.setScollVille(scenario);
+                    DicVille dicVille = new DicVille();
+                    dicVille.setDicVille(scenario.getVendeur(),scenario.getAcheteur());
+                    System.out.println(dicVille.getDicVille());
+                    dicVille.doChemin(dicVille.getDicVille(),new ArrayList<>());
+                    System.out.println(dicVille.getListChemin());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
 
             }
         }
