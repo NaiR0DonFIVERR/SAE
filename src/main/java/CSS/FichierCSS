@@ -17,6 +17,9 @@
 #labelDISTANCE{
     -fx-text-fill : blue;
 }
+#labelTitle{
+    -fx-text-fill : green;
+}
 #boutonAjoutEtape{
     -fx-background-color: red;
 }
