@@ -26,7 +26,8 @@ public class StackPaneChoixUtilisateur extends StackPane {
         GridPaneChoixAfficheChemin gridPaneChoixAfficheChemin = new GridPaneChoixAfficheChemin();
         StackPaneChoixChemins stackPaneChoixChemins = new StackPaneChoixChemins();
         GridPaneAjoutScenario gridPaneAjoutScenario = new GridPaneAjoutScenario();
-        components = new Node[2];
+        VBoxSupprimerScenario vBoxSupprimerScenario = new VBoxSupprimerScenario();
+        components = new Node[3];
         list = new ArrayList<>();
 
         stackPaneChoixChemins.setStackPane();
@@ -40,6 +41,7 @@ public class StackPaneChoixUtilisateur extends StackPane {
 
         components[0] = boxChemin_GridPaneChemin;
         components[1] = gridPaneAjoutScenario.getGridPane();
+        components[2] = vBoxSupprimerScenario;
 
         for (int i=0;i<components.length;i++){
             components[i].setUserData(i);
