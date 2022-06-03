@@ -82,6 +82,12 @@ public class Controler implements EventHandler {
                 }
 
             }
+            else if (((Button) event.getSource()).getAccessibleText() == "SupprimerScenario"){
+
+                System.out.println("Supprimer");
+
+            }
+
         }
         if (event.getSource() instanceof RadioButton){
             switch (((RadioButton)

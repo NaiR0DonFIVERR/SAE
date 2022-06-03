@@ -26,8 +26,8 @@ public class VBoxSupprimerScenario extends VBox {
         for (int i=0;i<list.size();i++){
             Button button = (Button) list.get(i);
             String NOM = button.getText();
-            System.out.println(NOM);
             comboBox.getItems().add(NOM);
+            comboBox.setUserData(button.getUserData());
         }
 
         this.getChildren().add(labelTitle);
