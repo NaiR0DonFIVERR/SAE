@@ -6,7 +6,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
-import modele.Scenario;
 import vue.VBoxRoot;
 
 
@@ -28,8 +27,8 @@ public class VBoxSupprimerScenario extends VBox {
             Button button = (Button) list.get(i);
             String NOM = button.getText();
             comboBox.getItems().add(NOM);
-            comboBox.setUserData(button.getUserData());
         }
+        comboBox.setValue(comboBox.getItems().get(0));
 
         this.getChildren().add(labelTitle);
         this.getChildren().add(comboBox);
@@ -37,8 +36,8 @@ public class VBoxSupprimerScenario extends VBox {
 
     }
 
-    public Scenario getValeurChoisi(){
-        return (Scenario) comboBox.getUserData();
+    public String getValeurChoisi(){
+        return (String) comboBox.getValue();
     }
 
 }

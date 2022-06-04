@@ -84,7 +84,7 @@ public class Controler implements EventHandler {
             }
             else if (((Button) event.getSource()).getAccessibleText() == "SupprimerScenario"){
 
-                System.out.println("Supprimer");
+                System.out.println(stackPaneChoixUtilisateur.getVBoxSupprimerScenario().getValeurChoisi());
 
             }
 
