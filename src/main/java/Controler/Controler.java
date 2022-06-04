@@ -9,6 +9,7 @@ import ComposantGraphique.Scroll.ScrollPaneVille;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.RadioButton;
 import javafx.scene.layout.StackPane;
@@ -84,11 +85,20 @@ public class Controler implements EventHandler {
             }
             else if (((Button) event.getSource()).getAccessibleText() == "SupprimerScenario"){
 
+                ComboBox comboBox = stackPaneChoixUtilisateur.getVBoxSupprimerScenario().getComboBox();
                 String valeur = stackPaneChoixUtilisateur.getVBoxSupprimerScenario().getValeurChoisi();
                 for (int i=0;i<boxScenario.getBoxScenario().getChildren().size();i++){
                     Button button = (Button) boxScenario.getBoxScenario().getChildren().get(i);
                     if (button.getText().equals(valeur)){
-                        System.out.println(button);
+                        boxScenario.getBoxScenario().getChildren().remove(button);
+                        comboBox.getItems().remove(valeur);
+                        if (comboBox.getItems().size()>0) {
+                            comboBox.setValue(comboBox.getItems().get(0));
+                        }
+                        else {
+                            System.out.println("vide");
+                        }
+                        break;
                     }
                 }
 
