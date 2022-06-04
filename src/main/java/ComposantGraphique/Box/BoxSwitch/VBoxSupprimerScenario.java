@@ -33,7 +33,7 @@ public class VBoxSupprimerScenario extends VBox {
         this.getChildren().add(labelTitle);
         this.getChildren().add(comboBox);
         this.getChildren().add(buttonSupprimer);
-
+        this.setId("backGroudWhite");
     }
 
     public String getValeurChoisi(){
