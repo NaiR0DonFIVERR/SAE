@@ -61,4 +61,6 @@ public class StackPaneChoixUtilisateur extends StackPane {
     public StackPaneChoixChemins getStackPaneChoixChemin(){ return (StackPaneChoixChemins) list.get(1);}
 
     public GridPaneAjoutScenario getgridPaneAjoutScenario(){ return (GridPaneAjoutScenario) list.get(2);}
+
+    public VBoxSupprimerScenario getVBoxSupprimerScenario(){ return (VBoxSupprimerScenario) components[2];}
 }
