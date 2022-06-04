@@ -84,7 +84,13 @@ public class Controler implements EventHandler {
             }
             else if (((Button) event.getSource()).getAccessibleText() == "SupprimerScenario"){
 
-                System.out.println(stackPaneChoixUtilisateur.getVBoxSupprimerScenario().getValeurChoisi());
+                String valeur = stackPaneChoixUtilisateur.getVBoxSupprimerScenario().getValeurChoisi();
+                for (int i=0;i<boxScenario.getBoxScenario().getChildren().size();i++){
+                    Button button = (Button) boxScenario.getBoxScenario().getChildren().get(i);
+                    if (button.getText().equals(valeur)){
+                        System.out.println(button);
+                    }
+                }
 
             }
 
