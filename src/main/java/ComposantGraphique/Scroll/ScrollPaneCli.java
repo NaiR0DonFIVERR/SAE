@@ -30,6 +30,9 @@ public class ScrollPaneCli extends ScrollPane {
         delete();
         for (int i=0; i<scenario.getAcheteur().size(); i++){
             Label labelCli = new Label(scenario.getVendeur().get(i) + " --> " + scenario.getAcheteur().get(i));
+            if (i%2==0){
+                labelCli.setId("textGris");
+            }
             vBox.getChildren().add(labelCli);
         }
 

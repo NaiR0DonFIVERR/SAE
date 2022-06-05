@@ -23,8 +23,10 @@ public class BoxScenario extends VBox {
         boxScenario = new VBox();
         scrollPane = new ScrollPane();
         scenarioList = new ArrayList<>();
+        Label labelTilte = new Label("Liste des Scenarios");
+        labelTilte.setId("labelTilte");
         scrollPane.setContent(boxScenario);
-        box.getChildren().addAll(new Label("Liste des Scenarios"), scrollPane);
+        box.getChildren().addAll(labelTilte, scrollPane);
     }
 
     public void addScenario(Scenario scenario){

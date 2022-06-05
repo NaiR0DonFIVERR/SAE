@@ -17,9 +17,32 @@
 #labelDISTANCE{
     -fx-text-fill : blue;
 }
+#labelTilte{
+    -fx-effect:dropshadow(one-pass-box,#81F7D8,8,0.0,2,0);
+}
 #boutonAjoutEtape{
     -fx-background-color: red;
 }
+#textGris{
+    -fx-text-fill : #0B614B;
+}
 #backGroudWhite {
     -fx-background-color: white;
+    -fx-alignment: center;
 }
+#buttonSupprimer{
+    -fx-effect:dropshadow(one-pass-box,black, 8 , 0.0 , 2 , 0 );
+}
+#comboBoxSuppr{
+    -fx-effect:dropshadow(one-pass-box,black, 8 , 0.0 , 2 , 0 );
+    -fx-border-color: yellow;
+}
+#boxSuppr{
+    -fx-background-color: white;
+    -fx-alignment: center;
+    -fx-background-radius: 100;
+    -fx-border-color: red;
+    -fx-setMaxHeight: 1500px;
+    -fx-setMaxWidth: 1500px
+}
+

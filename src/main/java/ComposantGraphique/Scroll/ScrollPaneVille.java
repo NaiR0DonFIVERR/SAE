@@ -27,6 +27,9 @@ public class ScrollPaneVille extends ScrollPaneCli {
         for (int i=0; i<listVilleVend.size();i++){
             int DISTANCE = getDistance(listVilleVend.get(i), listVilleAch.get(i));
             Label labelVille = new Label(listVilleVend.get(i) +" --> " + listVilleAch.get(i) + " " + DISTANCE+"km");
+            if (i%2==0){
+                labelVille.setId("textGris");
+            }
             vBox.getChildren().add(labelVille);
         }
     }

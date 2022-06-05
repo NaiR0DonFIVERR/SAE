@@ -17,11 +17,12 @@ public class VBoxSupprimerScenario extends VBox {
     public VBoxSupprimerScenario(){
 
         comboBox = new ComboBox<>();
-        Label labelTitle = new Label("Choix du scenario a supprimer");
+        Label labelTilte = new Label("Choix du scenario a supprimer");
         Button buttonSupprimer = new Button("Supprimer");
-        labelTitle.setId("lableTitle");
+        labelTilte.setId("labelTilte");
         buttonSupprimer.setOnAction(VBoxRoot.getControler());
         buttonSupprimer.setAccessibleText("SupprimerScenario");
+        buttonSupprimer.setId("buttonSupprimer");
         ObservableList<Node> list = (VBoxRoot.getBoxScenario().getBoxScenario().getChildren());
         for (int i=0;i<list.size();i++){
             Button button = (Button) list.get(i);
@@ -29,11 +30,12 @@ public class VBoxSupprimerScenario extends VBox {
             comboBox.getItems().add(NOM);
         }
         comboBox.setValue(comboBox.getItems().get(0));
+        comboBox.setId("comboBoxSuppr");
 
-        this.getChildren().add(labelTitle);
+        this.getChildren().add(labelTilte);
         this.getChildren().add(comboBox);
         this.getChildren().add(buttonSupprimer);
-        this.setId("backGroudWhite");
+        this.setId("boxSuppr");
     }
 
     public String getValeurChoisi(){

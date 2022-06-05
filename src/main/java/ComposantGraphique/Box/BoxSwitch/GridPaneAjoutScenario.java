@@ -40,9 +40,8 @@ public class GridPaneAjoutScenario extends GridPane {
         gridPane.setPadding(new Insets(40));
         gridPane.setHgap(20);
         gridPane.setVgap(20);
-        gridPane.setGridLinesVisible(true);
         Label labelTitle = new Label("Ajout d'un scenario");
-        labelTitle.setId("LabelTitle");
+        labelTitle.setId("labelTilte");
 
         for (String cli : getMembres()){    //la methode retourne une liste de tout les clients;
             comboBoxAcheteur.getItems().add(cli);
