@@ -48,6 +48,7 @@ public class StackPaneChoixUtilisateur extends StackPane {
         }
 
         stackPane = new StackPane(components);
+        stackPane.getChildren().get(0).toFront();
     }
 
     public StackPane getStackPane(){
