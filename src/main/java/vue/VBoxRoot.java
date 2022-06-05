@@ -32,7 +32,6 @@ public class VBoxRoot extends VBox {
     static StackPaneAfficheChemin stackPaneAfficheChemin = new StackPaneAfficheChemin();
     static StackPaneChoixChemins stackPaneChoixChemins = new StackPaneChoixChemins();
     static MenuBarChoixUtilisateur boxMenu = new MenuBarChoixUtilisateur();
-    static GridPaneChoixAfficheChemin gridPaneChoixAfficheChemin = new GridPaneChoixAfficheChemin();
     static HBox box_boxMenu_stackPane = new HBox();
     static StackPaneChoixUtilisateur stackPaneChoixUtilisateur = new StackPaneChoixUtilisateur();
 

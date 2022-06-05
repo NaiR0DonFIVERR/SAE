@@ -1,6 +1,7 @@
 package ComposantGraphique.Box.BoxAfficheChemin;
 
 import javafx.geometry.Insets;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
@@ -34,6 +35,8 @@ public class GridPaneChoixAfficheChemin extends GridPane {
             button.setOnAction(VBoxRoot.getControler());
             gridPane.add(button, i,1+i%2,1,1);
         }
+        toggleGroup.selectToggle(toggleGroup.getToggles().get(0));
+
     }
 
     public GridPane getGridPane(){

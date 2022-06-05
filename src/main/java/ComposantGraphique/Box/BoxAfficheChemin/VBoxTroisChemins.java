@@ -26,7 +26,6 @@ public class VBoxTroisChemins extends VBox{
         }
         boxAll.setId("backGroudWhite");
     }
-
     public void setBoxAll(TreeMap<Integer, List<String>> chemin){
         delet();
         int i =0;
