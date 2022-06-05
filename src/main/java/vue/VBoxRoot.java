@@ -56,7 +56,7 @@ public class VBoxRoot extends VBox {
 
         System.out.println(boxScenario.getScenarioList().get(2));
         scrollPaneVille.setScollVille(boxScenario.getScenarioList().get(2));
-        srollPaneCli.setScoll(boxScenario.getScenarioList().get(0));
+        srollPaneCli.setScoll(boxScenario.getScenarioList().get(2));
         boxRegroup.add(boxScenario.getBox());
         boxRegroup.add(srollPaneCli.getBoxAll());
         boxRegroup.add(scrollPaneVille.getBoxAll());
