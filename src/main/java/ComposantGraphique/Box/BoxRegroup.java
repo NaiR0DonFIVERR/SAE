@@ -9,6 +9,7 @@ public class BoxRegroup extends HBox {
 
     public BoxRegroup(){
         box = new HBox();
+        box.setId("boxRegroup");
     }
 
     public void add(Object objet){

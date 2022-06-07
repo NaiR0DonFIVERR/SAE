@@ -31,7 +31,7 @@ public class VBoxSupprimerScenario extends VBox {
         }
         comboBox.setValue(comboBox.getItems().get(0));
         comboBox.setId("comboBoxSuppr");
-
+        this.setMaxSize(400,500);
         this.getChildren().add(labelTilte);
         this.getChildren().add(comboBox);
         this.getChildren().add(buttonSupprimer);

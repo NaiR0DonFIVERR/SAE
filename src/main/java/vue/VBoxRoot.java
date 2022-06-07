@@ -58,8 +58,8 @@ public class VBoxRoot extends VBox {
         scrollPaneVille.setScollVille(boxScenario.getScenarioList().get(2));
         srollPaneCli.setScoll(boxScenario.getScenarioList().get(2));
         boxRegroup.add(boxScenario.getBox());
-        boxRegroup.add(srollPaneCli.getBoxAll());
-        boxRegroup.add(scrollPaneVille.getBoxAll());
+        HBox boxScroll = new HBox(srollPaneCli.getBoxAll(),scrollPaneVille.getBoxAll());boxScroll.setId("boxScroll");
+        boxRegroup.add(boxScroll);
 
         //stackPaneChoixChemins.setStackPane();
         //box_boxMenu_stackPane.getChildren().addAll(gridPaneChoixAfficheChemin.getGridPane(),stackPaneChoixChemins.getStackPane());

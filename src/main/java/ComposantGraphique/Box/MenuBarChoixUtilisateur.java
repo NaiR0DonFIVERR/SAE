@@ -19,6 +19,7 @@ public class MenuBarChoixUtilisateur extends MenuBar implements ConstantesMenu {
             menuItem.setOnAction(VBoxRoot.getControler());
             menu.getItems().add(menuItem);
         }
+        menuBar.setId("menuBar");
     }
 
     public MenuBar getMenuBar(){
