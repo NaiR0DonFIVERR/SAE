@@ -50,6 +50,12 @@
 }
 #boxRegroup {
     -fx-background-color: #E0F8F7;
+    -fx-border-color: blue;
+}
+#boxScenario {
+    -fx-alignment: center;
+    -fx-spacing: 5px;
+}
+#boxRoot {
     -fx-alignment: center;
 }
-

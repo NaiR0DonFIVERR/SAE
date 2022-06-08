@@ -42,7 +42,20 @@
     -fx-alignment: center;
     -fx-background-radius: 100;
     -fx-border-color: red;
-    -fx-setMaxHeight: 1500px;
-    -fx-setMaxWidth: 1500px
 }
-
+#menuBar {
+    -fx-background-color: #81BEF7;
+    -fx-text-fill : white;
+    -fx-alignment: center;
+}
+#boxRegroup {
+    -fx-background-color: #E0F8F7;
+    -fx-border-color: blue;
+}
+#boxScenario {
+    -fx-alignment: center;
+    -fx-spacing: 5px;
+}
+#boxRoot {
+    -fx-alignment: center;
+}

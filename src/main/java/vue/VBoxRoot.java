@@ -26,7 +26,6 @@ public class VBoxRoot extends VBox {
     static ScrollPaneCli srollPaneCli = new ScrollPaneCli();
     static BoxScenario boxScenario = new BoxScenario();
     static Controler controler = new Controler();
-    static BoxRegroup boxRegroup = new BoxRegroup();
     static VariableLoc variableLoc = new VariableLoc();
     static DicVille dicVille = new DicVille();
     static StackPaneAfficheChemin stackPaneAfficheChemin = new StackPaneAfficheChemin();
@@ -57,9 +56,12 @@ public class VBoxRoot extends VBox {
         System.out.println(boxScenario.getScenarioList().get(2));
         scrollPaneVille.setScollVille(boxScenario.getScenarioList().get(2));
         srollPaneCli.setScoll(boxScenario.getScenarioList().get(2));
-        boxRegroup.add(boxScenario.getBox());
+        HBox boxRegroup = new HBox();
+        boxRegroup.getChildren().add(boxScenario.getBox());
         HBox boxScroll = new HBox(srollPaneCli.getBoxAll(),scrollPaneVille.getBoxAll());boxScroll.setId("boxScroll");
-        boxRegroup.add(boxScroll);
+        boxRegroup.getChildren().add(boxScroll);
+        boxRegroup.setId("boxRegroup");
+        boxRegroup.setMaxSize(500,200);
 
         //stackPaneChoixChemins.setStackPane();
         //box_boxMenu_stackPane.getChildren().addAll(gridPaneChoixAfficheChemin.getGridPane(),stackPaneChoixChemins.getStackPane());
@@ -68,8 +70,9 @@ public class VBoxRoot extends VBox {
         System.out.println(stackPaneChoixChemins.getStackPane().getChildren());
 */
         this.getChildren().add(boxMenu.getMenuBar());
-        this.getChildren().add(boxRegroup.getBox());
+        this.getChildren().add(boxRegroup);
         this.getChildren().add(stackPaneChoixUtilisateur.getStackPane());
+        this.setId("boxRoot");
         //this.getChildren().add(box_boxMenu_stackPane);
         //this.getChildren().add(vBoxChemin.getBoxAll());
         //this.getChildren().add(vBoxTroisChemins.getBoxAll());

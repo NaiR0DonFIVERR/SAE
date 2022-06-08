@@ -10,6 +10,7 @@ public class BoxRegroup extends HBox {
     public BoxRegroup(){
         box = new HBox();
         box.setId("boxRegroup");
+        box.setMaxWidth(700);
     }
 
     public void add(Object objet){
