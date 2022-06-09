@@ -31,7 +31,7 @@ public class StackPaneChoixUtilisateur extends StackPane {
         list = new ArrayList<>();
 
         stackPaneChoixChemins.setStackPane();
-        boxChemin_GridPaneChemin = new HBox(gridPaneChoixAfficheChemin.getGridPane(),stackPaneChoixChemins.getStackPane());
+        boxChemin_GridPaneChemin = new HBox(gridPaneChoixAfficheChemin,stackPaneChoixChemins.getStackPane());
         gridPaneAjoutScenario.setGridPane();
 
 
