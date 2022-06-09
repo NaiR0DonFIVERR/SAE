@@ -40,7 +40,7 @@ public class StackPaneChoixUtilisateur extends StackPane {
         list.add(gridPaneAjoutScenario);
 
         components[0] = boxChemin_GridPaneChemin;
-        components[1] = gridPaneAjoutScenario.getGridPane();
+        components[1] = gridPaneAjoutScenario;
         components[2] = vBoxSupprimerScenario;
 
         for (int i=0;i<components.length;i++){

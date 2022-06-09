@@ -15,7 +15,6 @@ import static modele.LectureEcriture.getMembres;
 
 public class GridPaneAjoutScenario extends GridPane {
 
-    GridPane gridPane;
     ComboBox comboBoxVendeur;
     ComboBox comboBoxAcheteur;
     ScrollPaneAjoutEtape scrollPaneAjoutEtape;
@@ -23,7 +22,6 @@ public class GridPaneAjoutScenario extends GridPane {
     Button buttonAjoutScenario;
 
     public GridPaneAjoutScenario(){
-        gridPane = new GridPane();
         comboBoxVendeur = new ComboBox<>();
         comboBoxAcheteur = new ComboBox<>();
         scrollPaneAjoutEtape = new ScrollPaneAjoutEtape();
@@ -37,9 +35,9 @@ public class GridPaneAjoutScenario extends GridPane {
 
     public void setGridPane() throws IOException {
 
-        gridPane.setPadding(new Insets(40));
-        gridPane.setHgap(20);
-        gridPane.setVgap(20);
+        this.setPadding(new Insets(40));
+        this.setHgap(20);
+        this.setVgap(20);
         Label labelTitle = new Label("Ajout d'un scenario");
         labelTitle.setId("labelTilte");
 
@@ -48,23 +46,20 @@ public class GridPaneAjoutScenario extends GridPane {
             comboBoxVendeur.getItems().add(cli);
         }
 
-        gridPane.add(labelTitle, 0,0,5,1);
+        this.add(labelTitle, 0,0,5,1);
         GridPane.setHalignment(labelTitle, HPos.CENTER);
-        gridPane.setId("backGroudWhite");
+        this.setId("backGroudWhite");
 
         //Ajout des acheteurs et vendeurs
-        gridPane.add(new Label("Vendeur"), 0,1,1,1);
-        gridPane.add(new Label("Acheteur"), 2,1,1,1);
-        gridPane.add(comboBoxVendeur, 0,2,2,1);
-        gridPane.add(comboBoxAcheteur, 2,2,2,1);
-        gridPane.add(buttonAjoutEtape,0,4,1,1);
-        gridPane.add(buttonAjoutScenario,2,4,1,1);
-        gridPane.add(scrollPaneAjoutEtape,2,5,1,1);
+        this.add(new Label("Vendeur"), 0,1,1,1);
+        this.add(new Label("Acheteur"), 2,1,1,1);
+        this.add(comboBoxVendeur, 0,2,2,1);
+        this.add(comboBoxAcheteur, 2,2,2,1);
+        this.add(buttonAjoutEtape,0,4,1,1);
+        this.add(buttonAjoutScenario,2,4,1,1);
+        this.add(scrollPaneAjoutEtape,2,5,1,1);
     }
 
-    public GridPane getGridPane(){
-        return gridPane;
-    }
 
     public ScrollPaneAjoutEtape getScrollPaneAjoutEtape(){ return scrollPaneAjoutEtape; }
 
