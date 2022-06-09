@@ -11,6 +11,7 @@ import vue.VBoxRoot;
 
 import java.io.IOException;
 
+import static Constantes.ConstantesLabel.LABELAJOUTETAPE;
 import static modele.LectureEcriture.getMembres;
 
 public class GridPaneAjoutScenario extends GridPane {
@@ -20,6 +21,7 @@ public class GridPaneAjoutScenario extends GridPane {
     ScrollPaneAjoutEtape scrollPaneAjoutEtape;
     Button buttonAjoutEtape;
     Button buttonAjoutScenario;
+    Label labelAjoutEtape;
 
     public GridPaneAjoutScenario(){
         comboBoxVendeur = new ComboBox<>();
@@ -31,6 +33,7 @@ public class GridPaneAjoutScenario extends GridPane {
         buttonAjoutEtape.setId("boutonAjoutEtape");
         buttonAjoutEtape.setOnAction(evt ->{ajoutEtape();});
         buttonAjoutScenario.setOnAction(VBoxRoot.getControler());
+        labelAjoutEtape = new Label(LABELAJOUTETAPE[0]);
     }
 
     public void setGridPane() throws IOException {
@@ -51,20 +54,28 @@ public class GridPaneAjoutScenario extends GridPane {
         this.setId("backGroudWhite");
 
         //Ajout des acheteurs et vendeurs
+        this.setGridLinesVisible(true);
         this.add(new Label("Vendeur"), 0,1,1,1);
         this.add(new Label("Acheteur"), 2,1,1,1);
         this.add(comboBoxVendeur, 0,2,2,1);
         this.add(comboBoxAcheteur, 2,2,2,1);
         this.add(buttonAjoutEtape,0,4,1,1);
         this.add(buttonAjoutScenario,2,4,1,1);
-        this.add(scrollPaneAjoutEtape,2,5,1,1);
+        this.add(labelAjoutEtape,4,1,2,1);
+        this.add(scrollPaneAjoutEtape,4,2,2,4);
     }
 
 
     public ScrollPaneAjoutEtape getScrollPaneAjoutEtape(){ return scrollPaneAjoutEtape; }
 
     public void ajoutEtape(){
-        scrollPaneAjoutEtape.ajoutEtape((String) comboBoxVendeur.getValue(), (String) comboBoxAcheteur.getValue());
+        if (comboBoxVendeur.getValue().equals(comboBoxAcheteur.getValue())){
+            labelAjoutEtape.setText(LABELAJOUTETAPE[1]);
+        }
+        else {
+            scrollPaneAjoutEtape.ajoutEtape((String) comboBoxVendeur.getValue(), (String) comboBoxAcheteur.getValue());
+            labelAjoutEtape.setText(LABELAJOUTETAPE[0]);
+        }
     }
 
     public void ajoutScenario(){
