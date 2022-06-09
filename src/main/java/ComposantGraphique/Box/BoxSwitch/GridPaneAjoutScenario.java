@@ -59,7 +59,7 @@ public class GridPaneAjoutScenario extends GridPane {
         gridPane.add(comboBoxAcheteur, 2,2,2,1);
         gridPane.add(buttonAjoutEtape,0,4,1,1);
         gridPane.add(buttonAjoutScenario,2,4,1,1);
-        gridPane.add(scrollPaneAjoutEtape.getScrollPane(),2,5,1,1);
+        gridPane.add(scrollPaneAjoutEtape,2,5,1,1);
     }
 
     public GridPane getGridPane(){

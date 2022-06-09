@@ -9,17 +9,15 @@ import java.util.List;
 
 public class ScrollPaneAjoutEtape extends ScrollPane {
 
-    ScrollPane scrollPane;
     VBox box;
     List<String> listVend;
     List<String> listAch;
 
     public ScrollPaneAjoutEtape(){
-        scrollPane = new ScrollPane();
         box = new VBox();
         listVend = new ArrayList<>();
         listAch = new ArrayList<>();
-        scrollPane.setContent(box);
+        this.setContent(box);
     }
 
     public void ajoutEtape(String acheteur, String vendeur){
@@ -37,9 +35,6 @@ public class ScrollPaneAjoutEtape extends ScrollPane {
         }
     }
 
-    public ScrollPane getScrollPane(){
-        return scrollPane;
-    }
 
     public List<String> getListVend(){
         return listVend;
