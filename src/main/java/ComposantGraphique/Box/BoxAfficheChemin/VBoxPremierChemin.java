@@ -10,19 +10,17 @@ import java.util.*;
 
 import static ComposantGraphique.Box.BoxAfficheChemin.VBoxChemin.gethBoxList;
 
-public class VBoxPremierChemin {
+public class VBoxPremierChemin extends VBox{
 
-    VBox boxAll;
     VBox box;
     ScrollPane scrollPane;
 
     public VBoxPremierChemin(){
-        boxAll = new VBox();
         box = new VBox();
         scrollPane = new ScrollPane();
         scrollPane.setContent(box);
-        boxAll.getChildren().add(scrollPane);
-        boxAll.setId("backGroudWhite");
+        this.getChildren().add(scrollPane);
+        this.setId("backGroudWhite");
     }
 
     public void setBox(TreeMap<Integer, List<String>> chemin){
@@ -51,7 +49,4 @@ public class VBoxPremierChemin {
         }
     }
 
-    public VBox getBox(){
-        return boxAll;
-    }
 }
