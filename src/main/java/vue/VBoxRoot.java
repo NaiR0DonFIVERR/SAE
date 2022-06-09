@@ -57,8 +57,8 @@ public class VBoxRoot extends VBox {
         scrollPaneVille.setScollVille(boxScenario.getScenarioList().get(2));
         srollPaneCli.setScoll(boxScenario.getScenarioList().get(2));
         HBox boxRegroup = new HBox();
-        boxRegroup.getChildren().add(boxScenario.getBox());
-        HBox boxScroll = new HBox(srollPaneCli.getBoxAll(),scrollPaneVille.getBoxAll());boxScroll.setId("boxScroll");
+        boxRegroup.getChildren().add(boxScenario);
+        HBox boxScroll = new HBox(srollPaneCli,scrollPaneVille);boxScroll.setId("boxScroll");
         boxRegroup.getChildren().add(boxScroll);
         boxRegroup.setId("boxRegroup");
         boxRegroup.setMaxSize(500,200);

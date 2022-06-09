@@ -10,18 +10,13 @@ import java.io.IOException;
 public class ScrollPaneCli extends ScrollPane {
 
     VBox vBox;
-    ScrollPane scrollPane;
-    VBox boxAll;
 
     public ScrollPaneCli(){
-        boxAll = new VBox();
         vBox = new VBox();
-        scrollPane = new ScrollPane();
-        scrollPane.setMinViewportWidth(200);
-        scrollPane.setMinViewportHeight(100);
-        scrollPane.setMaxHeight(500);
-        scrollPane.setContent(vBox);
-        boxAll.getChildren().add(scrollPane);
+        this.setMinViewportWidth(200);
+        this.setMinViewportHeight(100);
+        this.setMaxHeight(500);
+        this.setContent(vBox);
     }
 
 
@@ -39,23 +34,10 @@ public class ScrollPaneCli extends ScrollPane {
     }
 
     public void delete(){
-
-        boxAll.getChildren().remove(0);
-        vBox = new VBox();
-        scrollPane = new ScrollPane();
-        scrollPane.setMinViewportWidth(175);
-        scrollPane.setMinViewportHeight(200);
-        scrollPane.setMaxHeight(500);
-        scrollPane.setContent(vBox);
-        boxAll.getChildren().add(scrollPane);
-    }
-
-    public ScrollPane getScrollPane(){
-        return scrollPane;
-    }
-
-    public VBox getBoxAll(){
-        return boxAll;
+        int TAILLE = vBox.getChildren().size();
+        for (int i=0;i<TAILLE;i++){
+            vBox.getChildren().remove(0);
+        }
     }
 
 }
