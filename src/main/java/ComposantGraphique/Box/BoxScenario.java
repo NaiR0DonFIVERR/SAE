@@ -13,21 +13,19 @@ import java.util.List;
 
 public class BoxScenario extends VBox {
 
-    VBox box;
     VBox boxScenario;
     ScrollPane scrollPane;
     List<Scenario> scenarioList;
 
     public BoxScenario(){
-        box = new VBox();
         boxScenario = new VBox();
         scrollPane = new ScrollPane();
         scenarioList = new ArrayList<>();
         Label labelTilte = new Label("Liste des Scenarios");
         labelTilte.setId("labelTilte");
         scrollPane.setContent(boxScenario);
-        box.getChildren().addAll(labelTilte, scrollPane);
-        box.setId("boxScenario");
+        this.getChildren().addAll(labelTilte, scrollPane);
+        this.setId("boxScenario");
     }
 
     public void addScenario(Scenario scenario){
@@ -41,10 +39,6 @@ public class BoxScenario extends VBox {
 
     public ScrollPane getScrollPane(){
         return scrollPane;
-    }
-
-    public VBox getBox(){
-        return box;
     }
 
     public List<Scenario> getScenarioList(){

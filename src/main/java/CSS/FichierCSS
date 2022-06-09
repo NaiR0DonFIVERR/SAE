@@ -55,6 +55,8 @@
 #boxScenario {
     -fx-alignment: center;
     -fx-spacing: 5px;
+    -fx-border-color: #A9F5BC;
+    -fx-background-color: #E6E6FA;
 }
 #boxRoot {
     -fx-alignment: center;
