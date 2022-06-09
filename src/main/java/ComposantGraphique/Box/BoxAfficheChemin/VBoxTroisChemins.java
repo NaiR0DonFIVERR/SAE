@@ -9,12 +9,10 @@ import java.util.*;
 
 public class VBoxTroisChemins extends VBox{
 
-    VBox boxAll;
     List<VBox> list;
 
     public VBoxTroisChemins(){
 
-        boxAll = new VBox();
         list = new ArrayList<>();
 
         for (int i=0;i<3;i++){
@@ -22,9 +20,9 @@ public class VBoxTroisChemins extends VBox{
             ScrollPane scrollPane = new ScrollPane();
             list.add(box);
             scrollPane.setContent(box);
-            boxAll.getChildren().add(scrollPane);
+            this.getChildren().add(scrollPane);
         }
-        boxAll.setId("backGroudWhite");
+        this.setId("backGroudWhite");
     }
     public void setBoxAll(TreeMap<Integer, List<String>> chemin){
         delet();
@@ -55,7 +53,4 @@ public class VBoxTroisChemins extends VBox{
         }
     }
 
-    public VBox getBoxAll(){
-        return boxAll;
-    }
 }
