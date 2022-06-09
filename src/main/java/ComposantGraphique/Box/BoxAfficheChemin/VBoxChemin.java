@@ -15,19 +15,16 @@ import static modele.LectureEcriture.getIndiceDistance;
 
 public class VBoxChemin extends VBox {
 
-
-    VBox boxAll;
     static List<HBox> hBoxList;
 
     public VBoxChemin(){
-        boxAll = new VBox();
         hBoxList = new ArrayList<>();
         for (int i=0;i<3;i++){
             HBox regroupBoxChemin = new HBox();
-            boxAll.getChildren().add(regroupBoxChemin);
+            this.getChildren().add(regroupBoxChemin);
             hBoxList.add(regroupBoxChemin);
         }
-        boxAll.setId("backGroudWhite");
+        this.setId("backGroudWhite");
     }
 
     public void setAllChemin(TreeMap<Integer, List<String>> chemin) throws IOException {
@@ -101,7 +98,4 @@ public class VBoxChemin extends VBox {
 
     public static List<HBox> gethBoxList(){return hBoxList;}
 
-    public VBox getBoxAll(){
-        return boxAll;
-    }
 }
