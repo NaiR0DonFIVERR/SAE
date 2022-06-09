@@ -34,6 +34,7 @@ public class GridPaneAjoutScenario extends GridPane {
         buttonAjoutEtape.setOnAction(evt ->{ajoutEtape();});
         buttonAjoutScenario.setOnAction(VBoxRoot.getControler());
         labelAjoutEtape = new Label(LABELAJOUTETAPE[0]);
+        labelAjoutEtape.setId("LABEL_AJOUT_ETAPE1");
     }
 
     public void setGridPane() throws IOException {
@@ -54,7 +55,6 @@ public class GridPaneAjoutScenario extends GridPane {
         this.setId("backGroudWhite");
 
         //Ajout des acheteurs et vendeurs
-        this.setGridLinesVisible(true);
         this.add(new Label("Vendeur"), 0,1,1,1);
         this.add(new Label("Acheteur"), 2,1,1,1);
         this.add(comboBoxVendeur, 0,2,2,1);
@@ -71,10 +71,17 @@ public class GridPaneAjoutScenario extends GridPane {
     public void ajoutEtape(){
         if (comboBoxVendeur.getValue().equals(comboBoxAcheteur.getValue())){
             labelAjoutEtape.setText(LABELAJOUTETAPE[1]);
+            labelAjoutEtape.setId("ERREUR_RED");
         }
         else {
             scrollPaneAjoutEtape.ajoutEtape((String) comboBoxVendeur.getValue(), (String) comboBoxAcheteur.getValue());
             labelAjoutEtape.setText(LABELAJOUTETAPE[0]);
+            if (scrollPaneAjoutEtape.getListAch().size()%2==0){
+                labelAjoutEtape.setId("LABEL_AJOUT_ETAPE1");
+            }
+            else {
+                labelAjoutEtape.setId("LABEL_AJOUT_ETAPE2");
+            }
         }
     }
 

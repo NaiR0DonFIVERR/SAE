@@ -61,3 +61,12 @@
 #boxRoot {
     -fx-alignment: center;
 }
+#ERREUR_RED {
+    -fx-text-fill : #EC7777;
+}
+#LABEL_AJOUT_ETAPE1 {
+    -fx-text-fill: #88B8EC;
+}
+#LABEL_AJOUT_ETAPE2 {
+    -fx-text-fill: #1FBC60;
+}
