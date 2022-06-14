@@ -26,6 +26,7 @@ public class BoxScenario extends VBox {
         scrollPane.setContent(boxScenario);
         this.getChildren().addAll(labelTilte, scrollPane);
         this.setId("boxScenario");
+        this.setMinWidth(150);
     }
 
     public void addScenario(Scenario scenario){
