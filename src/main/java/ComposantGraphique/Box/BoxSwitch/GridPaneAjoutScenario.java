@@ -55,8 +55,8 @@ public class GridPaneAjoutScenario extends GridPane {
         this.setId("backGroudWhite");
 
         //Ajout des acheteurs et vendeurs
-        this.add(new Label("Vendeur"), 0,1,1,1);
-        this.add(new Label("Acheteur"), 2,1,1,1);
+        this.add(new Label("Acheteur"), 0,1,1,1);
+        this.add(new Label("Vendeur"), 2,1,1,1);
         this.add(comboBoxVendeur, 0,2,2,1);
         this.add(comboBoxAcheteur, 2,2,2,1);
         this.add(buttonAjoutEtape,0,4,1,1);
