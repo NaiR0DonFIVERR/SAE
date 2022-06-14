@@ -26,7 +26,7 @@ public class VBoxRoot extends VBox {
     static ScrollPaneCli srollPaneCli = new ScrollPaneCli();
     static BoxScenario boxScenario = new BoxScenario();
     static Controler controler = new Controler();
-    static VariableLoc variableLoc = new VariableLoc();
+    //static VariableLoc variableLoc = new VariableLoc();
     static DicVille dicVille = new DicVille();
     static StackPaneAfficheChemin stackPaneAfficheChemin = new StackPaneAfficheChemin();
     static StackPaneChoixChemins stackPaneChoixChemins = new StackPaneChoixChemins();
@@ -42,9 +42,7 @@ public class VBoxRoot extends VBox {
 
             boxScenario.addScenario(scenario);
         }
-
-        variableLoc.setVariable(boxScenario.getScenarioList().get(0));
-        dicVille.setDicVille(getListVilleVend(), getListVilleAch());
+        dicVille.setDicVille(boxScenario.getScenarioList().get(0).getVendeur(), boxScenario.getScenarioList().get(0).getAcheteur());
         dicVille.doChemin(dicVille.getDicVille(), new ArrayList<>());
         //System.out.println(dicVille.getListChemin());
         //vBoxChemin.setAllChemin(dicVille.getListChemin());
@@ -91,9 +89,9 @@ public class VBoxRoot extends VBox {
     public static Controler getControler(){
         return controler;
     }
-    public static VariableLoc getVariableLoc(){
+    /*public static VariableLoc getVariableLoc(){
         return variableLoc;
-    }
+    }*/
     public static DicVille getDicVille(){
         return dicVille;
     }
