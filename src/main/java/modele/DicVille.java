@@ -17,7 +17,28 @@ public class DicVille {
     }
 
     public void setDicVille(List<String> listVilleVend, List<String> listVilleAch){
-        dicVille = doVoisinsEntrant(listVilleVend, listVilleAch);
+        for (int i = 0; i< listVilleVend.size(); i++){
+
+            //On récupère les cles et valeurs de notre dictionnaire
+            Set set = dicVille.entrySet();
+            Iterator iterator = set.iterator();
+            //On les parcours
+            while (iterator.hasNext()){
+                Map.Entry mentry = (Map.Entry)iterator.next();
+                //Si on a déjà un voisin entrant, on récupère la valeur du dictionnaire pour ajouter le nouveau voisin
+                if (mentry.getKey().equals(listVilleAch.get(i))){
+                    dicVille.get(mentry.getKey()).add(listVilleVend.get(i));
+                }
+            }
+            //Ajout d'une valeur si le dictionnaire ne possède pas la clef
+            if (dicVille.get(listVilleAch.get(i)) == null){
+                dicVille.put(listVilleAch.get(i), new ArrayList<String>(Collections.singleton(listVilleVend.get(i))));
+            }
+            if (dicVille.get(listVilleVend.get(i)) == null){
+                dicVille.put(listVilleVend.get(i), new ArrayList<>());
+            }
+
+        }
     }
 
 
@@ -73,7 +94,7 @@ public class DicVille {
             dic.get(mentry.getKey()).remove(ville);
         }
     }
-
+    /*
     public static TreeMap<String, List<String>> doVoisinsEntrant(List<String> listVend, List<String> listAch){
         TreeMap<String, List<String>> listVoisinSortant = new TreeMap<>();
         for (int i = 0; i< listVend.size(); i++){
@@ -100,6 +121,7 @@ public class DicVille {
         }
         return listVoisinSortant;
     }
+    */
     public List<List<String>> getPremierList(){
         List<List<String>> list = new ArrayList<>();
         Set set = listChemin.entrySet();

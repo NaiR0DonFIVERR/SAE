@@ -27,7 +27,7 @@ public class VBoxRoot extends VBox {
     static BoxScenario boxScenario = new BoxScenario();
     static Controler controler = new Controler();
     //static VariableLoc variableLoc = new VariableLoc();
-    static DicVille dicVille = new DicVille();
+    //static DicVille dicVille = new DicVille();
     static StackPaneAfficheChemin stackPaneAfficheChemin = new StackPaneAfficheChemin();
     static StackPaneChoixChemins stackPaneChoixChemins = new StackPaneChoixChemins();
     static MenuBarChoixUtilisateur boxMenu = new MenuBarChoixUtilisateur();
@@ -42,16 +42,15 @@ public class VBoxRoot extends VBox {
 
             boxScenario.addScenario(scenario);
         }
-        dicVille.setDicVille(boxScenario.getScenarioList().get(0).getVendeur(), boxScenario.getScenarioList().get(0).getAcheteur());
-        dicVille.doChemin(dicVille.getDicVille(), new ArrayList<>());
+        //dicVille.setDicVille(boxScenario.getScenarioList().get(0).getVendeur(), boxScenario.getScenarioList().get(0).getAcheteur());
+        //dicVille.doChemin(dicVille.getDicVille(), new ArrayList<>());
         //System.out.println(dicVille.getListChemin());
         //vBoxChemin.setAllChemin(dicVille.getListChemin());
         //vBoxTroisChemins.setBoxAll();
-        stackPaneAfficheChemin.setStackPane(dicVille.getListChemin());
+        //stackPaneAfficheChemin.setStackPane(dicVille.getListChemin());
         stackPaneChoixUtilisateur.setStackPane();
 
-
-        System.out.println(boxScenario.getScenarioList().get(2));
+        //System.out.println(dicVille.getDicVille());
         scrollPaneVille.setScollVille(boxScenario.getScenarioList().get(2));
         srollPaneCli.setScoll(boxScenario.getScenarioList().get(2));
         HBox boxRegroup = new HBox();
@@ -93,9 +92,9 @@ public class VBoxRoot extends VBox {
     /*public static VariableLoc getVariableLoc(){
         return variableLoc;
     }*/
-    public static DicVille getDicVille(){
+    /*public static DicVille getDicVille(){
         return dicVille;
-    }
+    }*/
     public static HBox getBox_boxMenu_stackPane(){
         return box_boxMenu_stackPane;
     }
