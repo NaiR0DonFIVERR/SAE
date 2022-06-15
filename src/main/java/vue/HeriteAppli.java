@@ -11,7 +11,7 @@ import java.io.IOException;
 public class HeriteAppli extends Application {
     public void start(Stage stage) throws IOException {
         VBoxRoot root = new VBoxRoot();
-        Scene scene = new Scene(root, 850, 800);
+        Scene scene = new Scene(root, 1200, 850);
         File[] fichierCss = new File("src/main/java/CSS").listFiles();
 
         for (File fichier : fichierCss){

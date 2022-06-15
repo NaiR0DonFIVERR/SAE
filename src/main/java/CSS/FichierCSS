@@ -70,3 +70,8 @@
 #LABEL_AJOUT_ETAPE2 {
     -fx-text-fill: #1FBC60;
 }
+#GridPaneChoixAfficheChemin {
+    -fx-background-color: white;
+    -fx-alignment: center;
+    -fx-border-color: #CEF6E3;
+}

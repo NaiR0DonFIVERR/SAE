@@ -16,13 +16,15 @@ public class GridPaneChoixAfficheChemin extends GridPane {
     public GridPaneChoixAfficheChemin(){
         toggleGroup = new ToggleGroup();
 
-        this.setGridLinesVisible(true);
+        //this.setGridLinesVisible(true);
+        Label labelTilte = new Label("Choix des chemins");
+        labelTilte.setId("labelTilte");
         this.setPadding(new Insets(40));
         this.setHgap(20);
         this.setVgap(20);
-        this.setId("backGroudWhite");
-
-        this.add(new Label("CHOIS"), 1, 0, 2,1);
+        this.setMinSize(400,400);
+        this.setId("GridPaneChoixAfficheChemin");
+        this.add(labelTilte, 1, 0, 2,1);
 
         for (int i=0;i<CHOIX_CHEMIN.length;i++){
             RadioButton button = new RadioButton(CHOIX_CHEMIN[i]);
