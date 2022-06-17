@@ -36,6 +36,7 @@ public class DicVille {
 
     public void doChemin(TreeMap<String, List<String>> dic, List<String> chemin) throws IOException {
         if (dic.size() == 0){
+            chemin.add("Velizy");
             int DISTANCE = 0;
             for (int i=0;i<chemin.size()-1;i++){
                 int DIST = getDistance(chemin.get(i), chemin.get(i+1));
@@ -45,6 +46,9 @@ public class DicVille {
             listChemin.put(DISTANCE,new ArrayList<>(chemin));    //Instantier une nouvelle liste -> comme on remove chemin, la liste aussi se remove
             //System.out.println(chemin);
             return;
+        }
+        if (chemin.size() ==0){
+            chemin.add("Velizy");
         }
         Set set = dic.entrySet();
         Iterator iterator = set.iterator();
