@@ -40,8 +40,8 @@
 #boxSuppr{
     -fx-background-color: white;
     -fx-alignment: center;
-    -fx-background-radius: 100;
     -fx-border-color: red;
+    -fx-effect:dropshadow(one-pass-box,black, 8 , 0.0 , 2 , 0 );
 }
 #menuBar {
     -fx-background-color: #81BEF7;

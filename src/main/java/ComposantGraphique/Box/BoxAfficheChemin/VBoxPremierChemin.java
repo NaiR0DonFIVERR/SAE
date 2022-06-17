@@ -24,22 +24,18 @@ public class VBoxPremierChemin extends VBox{
     }
 
     public void setBox(TreeMap<Integer, List<String>> chemin){
-        //delet();
         Label labelTitle = new Label("Chemin 0");
         labelTitle.setId("labelCheminEtape");
         box.getChildren().add(labelTitle);
         Set set = chemin.entrySet();
         Iterator iterator = set.iterator();
         Map.Entry mentry = (Map.Entry) iterator.next();
-
         for (String ville : chemin.get(mentry.getKey())){
             box.getChildren().add(new Label(ville));
         }
         Label labelDistance = new Label(mentry.getKey()+"km");
         labelDistance.setId("labelDISTANCE");
         box.getChildren().add(labelDistance);
-        //box.getChildren().add(gethBoxList().get(0).getChildren().get(0));
-        //System.out.println("taille" + gethBoxList().get(0).getChildren().size());
     }
     public void delet(){
         VBox box = (VBox)scrollPane.getContent();

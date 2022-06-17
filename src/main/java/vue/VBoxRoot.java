@@ -58,8 +58,8 @@ public class VBoxRoot extends VBox {
         HBox boxScroll = new HBox(srollPaneCli,scrollPaneVille);boxScroll.setId("boxScroll");
         boxRegroup.getChildren().add(boxScroll);
         boxRegroup.setId("boxRegroup");
-        boxRegroup.setMinSize(550,200);
-        boxRegroup.setMaxSize(550,200);
+        boxRegroup.setMinSize(580,200);
+        boxRegroup.setMaxSize(580,200);
 
         //stackPaneChoixChemins.setStackPane();
         //box_boxMenu_stackPane.getChildren().addAll(gridPaneChoixAfficheChemin.getGridPane(),stackPaneChoixChemins.getStackPane());
