@@ -86,7 +86,7 @@ public class Controler implements EventHandler {
             else if (((Button) event.getSource()).getAccessibleText() == "SupprimerScenario"){
 
                 ComboBox comboBox = stackPaneChoixUtilisateur.getVBoxSupprimerScenario().getComboBox();
-                String valeur = stackPaneChoixUtilisateur.getVBoxSupprimerScenario().getValeurChoisi();
+                String valeur = (String) comboBox.getValue();
                 for (int i=0;i<boxScenario.getBoxScenario().getChildren().size();i++){
                     Button button = (Button) boxScenario.getBoxScenario().getChildren().get(i);
                     if (button.getText().equals(valeur)){
@@ -96,14 +96,12 @@ public class Controler implements EventHandler {
                             comboBox.setValue(comboBox.getItems().get(0));
                         }
                         else {
-                            System.out.println("vide");
+                            System.out.println("Aucun scenario disponible");
                         }
                         break;
                     }
                 }
-
             }
-
         }
         if (event.getSource() instanceof RadioButton){
             switch (((RadioButton)

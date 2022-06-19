@@ -38,9 +38,7 @@ public class VBoxSupprimerScenario extends VBox {
         this.setId("boxSuppr");
     }
 
-    public String getValeurChoisi(){
-        return (String) comboBox.getValue();
-    }
+
 
     public ComboBox getComboBox(){
         return comboBox;
