@@ -44,6 +44,7 @@ public class DicVille {
             }
 
             listChemin.put(DISTANCE,new ArrayList<>(chemin));    //Instantier une nouvelle liste -> comme on remove chemin, la liste aussi se remove
+            chemin.remove(chemin.size()-1);
             //System.out.println(chemin);
             return;
         }
