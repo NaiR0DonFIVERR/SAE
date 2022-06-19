@@ -64,11 +64,13 @@ public class Controler implements EventHandler {
             else if (((Button) event.getSource()).getAccessibleText() == "AjoutScenario") {
 
                 try {
+                    ComboBox comboBox = stackPaneChoixUtilisateur.getVBoxSupprimerScenario().getComboBox();
                     List<String> listVend = new ArrayList<>(stackPaneChoixUtilisateur.getgridPaneAjoutScenario().getScrollPaneAjoutEtape().getListVend());
                     List<String> listAch = new ArrayList<>(stackPaneChoixUtilisateur.getgridPaneAjoutScenario().getScrollPaneAjoutEtape().getListAch());
                     Scenario scenario = new Scenario(listVend,listAch);
-                    System.out.println(scenario);
-                    boxScenario.addScenario(scenario);
+                    System.out.println("L'ajout d'un nouveau scenario a bien ete effectue"+scenario);
+                    String nouveauxScenario = boxScenario.addScenario(scenario);
+                    comboBox.getItems().add(nouveauxScenario);
                     stackPaneChoixUtilisateur.getgridPaneAjoutScenario().ajoutScenario();
                     scrollPaneCli.setScoll(scenario);
                     scrollPaneVille.setScollVille(scenario);

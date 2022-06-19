@@ -29,13 +29,14 @@ public class BoxScenario extends VBox {
         this.setMinWidth(150);
     }
 
-    public void addScenario(Scenario scenario){
+    public String addScenario(Scenario scenario){
         Button button = new Button("Scenario : " + scenarioList.size());
         scenarioList.add(scenario);
         button.setUserData(scenario);
         button.setAccessibleText("ChangeScenario");
         button.setOnAction(VBoxRoot.getControler());
         boxScenario.getChildren().add(button);
+        return button.getText();
     }
 
     public ScrollPane getScrollPane(){
