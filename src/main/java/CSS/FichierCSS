@@ -11,20 +11,10 @@
 #boxEtape {
     -fx-border-color: #5F9EA0;
 }
-#labelCheminEtape{
-    -fx-text-fill : coral;
-}
-#labelDISTANCE{
-    -fx-text-fill : blue;
-}
-#labelTilte{
-    -fx-effect:dropshadow(one-pass-box,#81F7D8,8,0.0,2,0);
-}
 #boutonAjoutEtape{
-    -fx-background-color: red;
-}
-#textGris{
-    -fx-text-fill : #0B614B;
+    -fx-background-color: #ddf5ee;
+    -fx-border-color: #5F9EA0;
+    -fx-text-fill : blue;
 }
 #backGroudWhite {
     -fx-background-color: white;
@@ -60,15 +50,6 @@
 }
 #boxRoot {
     -fx-alignment: center;
-}
-#ERREUR_RED {
-    -fx-text-fill : #EC7777;
-}
-#LABEL_AJOUT_ETAPE1 {
-    -fx-text-fill: #88B8EC;
-}
-#LABEL_AJOUT_ETAPE2 {
-    -fx-text-fill: #1FBC60;
 }
 #GridPaneChoixAfficheChemin {
     -fx-background-color: white;
