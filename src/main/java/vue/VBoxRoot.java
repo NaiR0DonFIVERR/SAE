@@ -67,7 +67,7 @@ public class VBoxRoot extends VBox {
         System.out.println(stackPane.getChildren());
         System.out.println(stackPaneChoixChemins.getStackPane().getChildren());
 */
-        this.getChildren().add(boxMenu.getMenuBar());
+        this.getChildren().add(boxMenu);
         this.getChildren().add(boxRegroup);
         this.getChildren().add(stackPaneChoixUtilisateur.getStackPane());
         this.setId("boxRoot");
