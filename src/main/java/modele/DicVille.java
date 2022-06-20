@@ -67,9 +67,9 @@ public class DicVille {
         }
     }
 
-    public static TreeMap copyDic(TreeMap<String, List<String>> dicAcpoier){
+    public static TreeMap copyDic(TreeMap<String, List<String>> dicACopier){
         TreeMap <String, List<String>> nouvDic = new TreeMap<>();
-        Set set = dicAcpoier.entrySet();
+        Set set = dicACopier.entrySet();
         Iterator iterator = set.iterator();
         while (iterator.hasNext()) {
             Map.Entry mentry = (Map.Entry) iterator.next();

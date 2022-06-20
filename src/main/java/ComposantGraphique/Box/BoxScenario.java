@@ -39,10 +39,6 @@ public class BoxScenario extends VBox {
         return button.getText();
     }
 
-    public ScrollPane getScrollPane(){
-        return scrollPane;
-    }
-
     public List<Scenario> getScenarioList(){
         return scenarioList;
     }
